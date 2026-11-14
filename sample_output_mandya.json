@@ -1,0 +1,1013 @@
+{
+ "query": {
+  "lat": 12.5,
+  "lon": 76.85,
+  "radius_m": 100.0
+ },
+ "generated_at": "2026-11-14T08:00:51+0530",
+ "field": {
+  "lat": 12.5,
+  "lon": 76.85,
+  "radius_m": 100.0,
+  "area_ha": 3.142,
+  "pixels_10m": 316
+ },
+ "crop_health": {
+  "summary": "Dense, healthy canopy",
+  "latest_scene": {
+   "item_id": "S2C_MSIL2A_20261113T051041_R019_T43PFP_20261113T100104",
+   "date": "2026-11-13",
+   "datetime_ist": "13 Nov 2026, 10:40 IST",
+   "datetime_utc": "2026-11-13T05:10:41Z",
+   "satellite": "Sentinel-2C",
+   "satellite_short": "S2C",
+   "tile": "43PFP+43PGP",
+   "relative_orbit": 19,
+   "tile_cloud_pct": 7.1,
+   "field_clear_fraction": 1.0,
+   "days_ago": 1,
+   "stac_item_url": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a/items/S2C_MSIL2A_20261113T051041_R019_T43PFP_20261113T100104",
+   "scene_preview_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/preview.png?collection=sentinel-2-l2a&item=S2C_MSIL2A_20261113T051041_R019_T43PFP_20261113T100104&assets=visual&asset_bidx=visual%7C1%2C2%2C3&nodata=0&format=png",
+   "explorer_url": "https://planetarycomputer.microsoft.com/explore?c=76.85000,12.50000&z=15&v=2&d=sentinel-2-l2a&s=false%3A%3A100%3A%3Atrue&sr=desc&m=Most+recent+%28low+cloud%29&r=Natural+color",
+   "indices": {
+    "NDVI": {
+     "mean": 0.821,
+     "median": 0.845,
+     "min": 0.493,
+     "max": 0.896,
+     "std": 0.066,
+     "p10": 0.733,
+     "p90": 0.875
+    },
+    "NDWI": {
+     "mean": -0.724,
+     "median": -0.738,
+     "min": -0.794,
+     "max": -0.494,
+     "std": 0.05,
+     "p10": -0.774,
+     "p90": -0.66
+    },
+    "NDMI": {
+     "mean": 0.365,
+     "median": 0.394,
+     "min": 0.064,
+     "max": 0.48,
+     "std": 0.072,
+     "p10": 0.262,
+     "p90": 0.429
+    },
+    "NDRE": {
+     "mean": 0.573,
+     "median": 0.594,
+     "min": 0.323,
+     "max": 0.696,
+     "std": 0.069,
+     "p10": 0.479,
+     "p90": 0.647
+    }
+   },
+   "scl_classes": {
+    "vegetation": 1.0
+   },
+   "ndvi_zones": {
+    "bare/stressed (<0.2)": 0.0,
+    "low (0.2-0.4)": 0.0,
+    "moderate (0.4-0.6)": 0.022,
+    "healthy (>=0.6)": 0.978
+   },
+   "clear_pixels": 316,
+   "field_pixels": 316
+  }
+ },
+ "thumbnails": {
+  "true_color": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAeAAAAHgCAIAAA...(truncated)",
+  "ndvi": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAeAAAAHgCAIAAA...(truncated)",
+  "context_radius_m": 400.0,
+  "bands": "True colour = B4/B3/B2 (10 m), 2-98% stretch",
+  "ndvi_color_scale": "RdYlGn, -0.1 (red) to 0.9 (green)",
+  "scene": {
+   "item_id": "S2C_MSIL2A_20261113T051041_R019_T43PFP_20261113T100104",
+   "date": "2026-11-13",
+   "datetime_ist": "13 Nov 2026, 10:40 IST",
+   "datetime_utc": "2026-11-13T05:10:41Z",
+   "satellite": "Sentinel-2C",
+   "satellite_short": "S2C",
+   "tile": "43PFP+43PGP",
+   "relative_orbit": 19,
+   "tile_cloud_pct": 7.1,
+   "field_clear_fraction": 1.0,
+   "days_ago": 1,
+   "stac_item_url": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a/items/S2C_MSIL2A_20261113T051041_R019_T43PFP_20261113T100104",
+   "scene_preview_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/preview.png?collection=sentinel-2-l2a&item=S2C_MSIL2A_20261113T051041_R019_T43PFP_20261113T100104&assets=visual&asset_bidx=visual%7C1%2C2%2C3&nodata=0&format=png",
+   "explorer_url": "https://planetarycomputer.microsoft.com/explore?c=76.85000,12.50000&z=15&v=2&d=sentinel-2-l2a&s=false%3A%3A100%3A%3Atrue&sr=desc&m=Most+recent+%28low+cloud%29&r=Natural+color"
+  }
+ },
+ "recent_clear_scenes": [
+  {
+   "item_id": "S2C_MSIL2A_20261113T051041_R019_T43PFP_20261113T100104",
+   "date": "2026-11-13",
+   "datetime_ist": "13 Nov 2026, 10:40 IST",
+   "datetime_utc": "2026-11-13T05:10:41Z",
+   "satellite": "Sentinel-2C",
+   "satellite_short": "S2C",
+   "tile": "43PFP+43PGP",
+   "relative_orbit": 19,
+   "tile_cloud_pct": 7.1,
+   "field_clear_fraction": 1.0,
+   "days_ago": 1,
+   "stac_item_url": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a/items/S2C_MSIL2A_20261113T051041_R019_T43PFP_20261113T100104",
+   "scene_preview_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/preview.png?collection=sentinel-2-l2a&item=S2C_MSIL2A_20261113T051041_R019_T43PFP_20261113T100104&assets=visual&asset_bidx=visual%7C1%2C2%2C3&nodata=0&format=png",
+   "explorer_url": "https://planetarycomputer.microsoft.com/explore?c=76.85000,12.50000&z=15&v=2&d=sentinel-2-l2a&s=false%3A%3A100%3A%3Atrue&sr=desc&m=Most+recent+%28low+cloud%29&r=Natural+color",
+   "true_color": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAA...(truncated)"
+  },
+  {
+   "item_id": "S2B_MSIL2A_20261111T052039_R062_T43PGP_20261111T090507",
+   "date": "2026-11-11",
+   "datetime_ist": "11 Nov 2026, 10:50 IST",
+   "datetime_utc": "2026-11-11T05:20:39Z",
+   "satellite": "Sentinel-2B",
+   "satellite_short": "S2B",
+   "tile": "43PGP+43PFP",
+   "relative_orbit": 62,
+   "tile_cloud_pct": 35.9,
+   "field_clear_fraction": 1.0,
+   "days_ago": 3,
+   "stac_item_url": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a/items/S2B_MSIL2A_20261111T052039_R062_T43PGP_20261111T090507",
+   "scene_preview_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/preview.png?collection=sentinel-2-l2a&item=S2B_MSIL2A_20261111T052039_R062_T43PGP_20261111T090507&assets=visual&asset_bidx=visual%7C1%2C2%2C3&nodata=0&format=png",
+   "explorer_url": "https://planetarycomputer.microsoft.com/explore?c=76.85000,12.50000&z=15&v=2&d=sentinel-2-l2a&s=false%3A%3A100%3A%3Atrue&sr=desc&m=Most+recent+%28low+cloud%29&r=Natural+color",
+   "true_color": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAA...(truncated)"
+  },
+  {
+   "item_id": "S2A_MSIL2A_20261029T052231_R062_T43PFP_20261029T101714",
+   "date": "2026-10-29",
+   "datetime_ist": "29 Oct 2026, 10:52 IST",
+   "datetime_utc": "2026-10-29T05:22:31Z",
+   "satellite": "Sentinel-2A",
+   "satellite_short": "S2A",
+   "tile": "43PFP+43PFP+43PGP+43PGP",
+   "relative_orbit": 62,
+   "tile_cloud_pct": 2.1,
+   "field_clear_fraction": 1.0,
+   "days_ago": 16,
+   "stac_item_url": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a/items/S2A_MSIL2A_20261029T052231_R062_T43PFP_20261029T101714",
+   "scene_preview_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/preview.png?collection=sentinel-2-l2a&item=S2A_MSIL2A_20261029T052231_R062_T43PFP_20261029T101714&assets=visual&asset_bidx=visual%7C1%2C2%2C3&nodata=0&format=png",
+   "explorer_url": "https://planetarycomputer.microsoft.com/explore?c=76.85000,12.50000&z=15&v=2&d=sentinel-2-l2a&s=false%3A%3A100%3A%3Atrue&sr=desc&m=Most+recent+%28low+cloud%29&r=Natural+color",
+   "true_color": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAA...(truncated)"
+  },
+  {
+   "item_id": "S2C_MSIL2A_20261027T051911_R062_T43PFP_20261027T101812",
+   "date": "2026-10-27",
+   "datetime_ist": "27 Oct 2026, 10:49 IST",
+   "datetime_utc": "2026-10-27T05:19:11Z",
+   "satellite": "Sentinel-2C",
+   "satellite_short": "S2C",
+   "tile": "43PFP+43PGP",
+   "relative_orbit": 62,
+   "tile_cloud_pct": 4.8,
+   "field_clear_fraction": 1.0,
+   "days_ago": 18,
+   "stac_item_url": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a/items/S2C_MSIL2A_20261027T051911_R062_T43PFP_20261027T101812",
+   "scene_preview_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/preview.png?collection=sentinel-2-l2a&item=S2C_MSIL2A_20261027T051911_R062_T43PFP_20261027T101812&assets=visual&asset_bidx=visual%7C1%2C2%2C3&nodata=0&format=png",
+   "explorer_url": "https://planetarycomputer.microsoft.com/explore?c=76.85000,12.50000&z=15&v=2&d=sentinel-2-l2a&s=false%3A%3A100%3A%3Atrue&sr=desc&m=Most+recent+%28low+cloud%29&r=Natural+color",
+   "true_color": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAA...(truncated)"
+  },
+  {
+   "item_id": "S2C_MSIL2A_20261014T050751_R019_T43PGP_20261014T100514",
+   "date": "2026-10-14",
+   "datetime_ist": "14 Oct 2026, 10:37 IST",
+   "datetime_utc": "2026-10-14T05:07:51Z",
+   "satellite": "Sentinel-2C",
+   "satellite_short": "S2C",
+   "tile": "43PGP+43PFP",
+   "relative_orbit": 19,
+   "tile_cloud_pct": 4.2,
+   "field_clear_fraction": 1.0,
+   "days_ago": 31,
+   "stac_item_url": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a/items/S2C_MSIL2A_20261014T050751_R019_T43PGP_20261014T100514",
+   "scene_preview_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/preview.png?collection=sentinel-2-l2a&item=S2C_MSIL2A_20261014T050751_R019_T43PGP_20261014T100514&assets=visual&asset_bidx=visual%7C1%2C2%2C3&nodata=0&format=png",
+   "explorer_url": "https://planetarycomputer.microsoft.com/explore?c=76.85000,12.50000&z=15&v=2&d=sentinel-2-l2a&s=false%3A%3A100%3A%3Atrue&sr=desc&m=Most+recent+%28low+cloud%29&r=Natural+color",
+   "true_color": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAA...(truncated)"
+  },
+  {
+   "item_id": "S2B_MSIL2A_20260929T050649_R019_T43PFP_20260929T091314",
+   "date": "2026-09-29",
+   "datetime_ist": "29 Sep 2026, 10:36 IST",
+   "datetime_utc": "2026-09-29T05:06:49Z",
+   "satellite": "Sentinel-2B",
+   "satellite_short": "S2B",
+   "tile": "43PFP+43PGP",
+   "relative_orbit": 19,
+   "tile_cloud_pct": 61.3,
+   "field_clear_fraction": 1.0,
+   "days_ago": 46,
+   "stac_item_url": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a/items/S2B_MSIL2A_20260929T050649_R019_T43PFP_20260929T091314",
+   "scene_preview_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/preview.png?collection=sentinel-2-l2a&item=S2B_MSIL2A_20260929T050649_R019_T43PFP_20260929T091314&assets=visual&asset_bidx=visual%7C1%2C2%2C3&nodata=0&format=png",
+   "explorer_url": "https://planetarycomputer.microsoft.com/explore?c=76.85000,12.50000&z=15&v=2&d=sentinel-2-l2a&s=false%3A%3A100%3A%3Atrue&sr=desc&m=Most+recent+%28low+cloud%29&r=Natural+color",
+   "true_color": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAA...(truncated)"
+  }
+ ],
+ "ndvi_timeseries": {
+  "monthly_median": [
+   {
+    "month": "2025-11",
+    "ndvi": 0.796,
+    "n_scenes": 3
+   },
+   {
+    "month": "2025-12",
+    "ndvi": 0.519,
+    "n_scenes": 3
+   },
+   {
+    "month": "2026-01",
+    "ndvi": 0.318,
+    "n_scenes": 3
+   },
+   {
+    "month": "2026-02",
+    "ndvi": 0.376,
+    "n_scenes": 3
+   },
+   {
+    "month": "2026-03",
+    "ndvi": 0.454,
+    "n_scenes": 3
+   },
+   {
+    "month": "2026-04",
+    "ndvi": 0.72,
+    "n_scenes": 3
+   },
+   {
+    "month": "2026-05",
+    "ndvi": 0.735,
+    "n_scenes": 3
+   },
+   {
+    "month": "2026-06",
+    "ndvi": 0.486,
+    "n_scenes": 3
+   },
+   {
+    "month": "2026-07",
+    "ndvi": 0.312,
+    "n_scenes": 1
+   },
+   {
+    "month": "2026-08",
+    "ndvi": null,
+    "n_scenes": 0
+   },
+   {
+    "month": "2026-09",
+    "ndvi": 0.53,
+    "n_scenes": 1
+   },
+   {
+    "month": "2026-10",
+    "ndvi": 0.728,
+    "n_scenes": 2
+   },
+   {
+    "month": "2026-11",
+    "ndvi": 0.814,
+    "n_scenes": 2
+   }
+  ],
+  "scenes": [
+   {
+    "date": "2025-11-01",
+    "clear": 1.0,
+    "ndvi": 0.833
+   },
+   {
+    "date": "2025-11-06",
+    "clear": 1.0,
+    "ndvi": 0.796
+   },
+   {
+    "date": "2025-11-21",
+    "clear": 1.0,
+    "ndvi": 0.68
+   },
+   {
+    "date": "2025-12-08",
+    "clear": 1.0,
+    "ndvi": 0.534
+   },
+   {
+    "date": "2025-12-11",
+    "clear": 1.0,
+    "ndvi": 0.456
+   },
+   {
+    "date": "2025-12-13",
+    "clear": 1.0,
+    "ndvi": 0.519
+   },
+   {
+    "date": "2026-01-15",
+    "clear": 1.0,
+    "ndvi": 0.318
+   },
+   {
+    "date": "2026-01-20",
+    "clear": 1.0,
+    "ndvi": 0.299
+   },
+   {
+    "date": "2026-01-30",
+    "clear": 1.0,
+    "ndvi": 0.337
+   },
+   {
+    "date": "2026-02-04",
+    "clear": 0.94,
+    "ndvi": 0.376
+   },
+   {
+    "date": "2026-02-06",
+    "clear": 0.9,
+    "ndvi": 0.36
+   },
+   {
+    "date": "2026-02-19",
+    "clear": 0.86,
+    "ndvi": 0.423
+   },
+   {
+    "date": "2026-03-03",
+    "clear": 0.97,
+    "ndvi": 0.433
+   },
+   {
+    "date": "2026-03-06",
+    "clear": 0.95,
+    "ndvi": 0.454
+   },
+   {
+    "date": "2026-03-26",
+    "clear": 1.0,
+    "ndvi": 0.633
+   },
+   {
+    "date": "2026-04-10",
+    "clear": 1.0,
+    "ndvi": 0.725
+   },
+   {
+    "date": "2026-04-15",
+    "clear": 1.0,
+    "ndvi": 0.679
+   },
+   {
+    "date": "2026-04-30",
+    "clear": 1.0,
+    "ndvi": 0.72
+   },
+   {
+    "date": "2026-05-02",
+    "clear": 1.0,
+    "ndvi": 0.735
+   },
+   {
+    "date": "2026-05-05",
+    "clear": 1.0,
+    "ndvi": 0.738
+   },
+   {
+    "date": "2026-05-25",
+    "clear": 1.0,
+    "ndvi": 0.628
+   },
+   {
+    "date": "2026-06-01",
+    "clear": 1.0,
+    "ndvi": 0.486
+   },
+   {
+    "date": "2026-06-04",
+    "clear": 1.0,
+    "ndvi": 0.611
+   },
+   {
+    "date": "2026-06-16",
+    "clear": 1.0,
+    "ndvi": 0.421
+   },
+   {
+    "date": "2026-07-14",
+    "clear": 1.0,
+    "ndvi": 0.312
+   },
+   {
+    "date": "2026-09-27",
+    "clear": 1.0,
+    "ndvi": 0.53
+   },
+   {
+    "date": "2026-10-14",
+    "clear": 1.0,
+    "ndvi": 0.626
+   },
+   {
+    "date": "2026-10-29",
+    "clear": 1.0,
+    "ndvi": 0.83
+   },
+   {
+    "date": "2026-11-11",
+    "clear": 1.0,
+    "ndvi": 0.806
+   },
+   {
+    "date": "2026-11-13",
+    "clear": 1.0,
+    "ndvi": 0.821
+   }
+  ],
+  "scenes_checked": 39
+ },
+ "crop_estimate": {
+  "method": "rule-based NDVI phenology heuristic (not a trained model)",
+  "valid_months": 11,
+  "total_months": 12,
+  "peaks": [
+   {
+    "month": "2026-05",
+    "ndvi": 0.735,
+    "season": "summer"
+   },
+   {
+    "month": "2026-11",
+    "ndvi": 0.814,
+    "season": "kharif"
+   }
+  ],
+  "ndvi_max": 0.814,
+  "ndvi_min": 0.312,
+  "ndvi_mean": 0.534,
+  "amplitude": 0.502,
+  "label": "Double cropped (summer + kharif)",
+  "confidence": 0.63,
+  "confidence_level": "medium",
+  "reasoning": "Two crop cycles: peaks in 2026-05 (NDVI 0.735) and 2026-11 (NDVI 0.814).",
+  "candidates": "summer: summer paddy (canal areas, planted Dec-Jan, harvested Apr-May), vegetables, pulses, fodder; kharif: paddy (irrigated), ragi, maize, tur, groundnut"
+ },
+ "landcover": {
+  "product": "ESA_WorldCover_10m_2021_v200_N12E075",
+  "point_class_code": 40,
+  "point_class": "Cropland",
+  "buffer_distribution": {
+   "Tree cover": 0.091,
+   "Grassland": 0.186,
+   "Cropland": 0.723
+  },
+  "note": "ESA WorldCover 10 m (map year 2021)"
+ },
+ "weather": {
+  "current": {
+   "time": "2026-11-14T08:00",
+   "interval": 900,
+   "temperature_2m": 21.3,
+   "relative_humidity_2m": 88,
+   "apparent_temperature": 24.0,
+   "precipitation": 0.0,
+   "rain": 0.0,
+   "wind_speed_10m": 5.3,
+   "weather_code": 1,
+   "cloud_cover": 34,
+   "weather": "Mainly clear"
+  },
+  "soil": {
+   "moisture_0_7cm_m3m3": 0.162,
+   "moisture_7_28cm_m3m3": 0.191,
+   "temperature_0_7cm_c": 23.5,
+   "temperature_7_28cm_c": 25.8,
+   "source": "Open-Meteo model soil layers (ECMWF/ERA5-based), ~9-11 km grid, not a field measurement"
+  },
+  "daily": [
+   {
+    "date": "2026-11-07",
+    "tmax": 29.4,
+    "tmin": 20.6,
+    "rain_mm": 0.6,
+    "rain_prob": 39,
+    "et0_mm": 4.35,
+    "rh_max": 98,
+    "rh_min": 52,
+    "wind_max_kmh": 16.7,
+    "weather": "Light drizzle",
+    "past": true
+   },
+   {
+    "date": "2026-11-08",
+    "tmax": 29.9,
+    "tmin": 20.1,
+    "rain_mm": 0.6,
+    "rain_prob": 58,
+    "et0_mm": 4.39,
+    "rh_max": 99,
+    "rh_min": 47,
+    "wind_max_kmh": 16.9,
+    "weather": "Light drizzle",
+    "past": true
+   },
+   {
+    "date": "2026-11-09",
+    "tmax": 29.3,
+    "tmin": 20.1,
+    "rain_mm": 0.3,
+    "rain_prob": 33,
+    "et0_mm": 4.45,
+    "rh_max": 96,
+    "rh_min": 46,
+    "wind_max_kmh": 18.3,
+    "weather": "Light drizzle",
+    "past": true
+   },
+   {
+    "date": "2026-11-10",
+    "tmax": 29.6,
+    "tmin": 19.6,
+    "rain_mm": 0.0,
+    "rain_prob": 6,
+    "et0_mm": 4.34,
+    "rh_max": 96,
+    "rh_min": 43,
+    "wind_max_kmh": 13.3,
+    "weather": "Overcast",
+    "past": true
+   },
+   {
+    "date": "2026-11-11",
+    "tmax": 29.3,
+    "tmin": 19.2,
+    "rain_mm": 0.0,
+    "rain_prob": 0,
+    "et0_mm": 4.67,
+    "rh_max": 90,
+    "rh_min": 39,
+    "wind_max_kmh": 10.3,
+    "weather": "Overcast",
+    "past": true
+   },
+   {
+    "date": "2026-11-12",
+    "tmax": 28.4,
+    "tmin": 18.4,
+    "rain_mm": 0.0,
+    "rain_prob": 0,
+    "et0_mm": 5.09,
+    "rh_max": 92,
+    "rh_min": 34,
+    "wind_max_kmh": 13.4,
+    "weather": "Overcast",
+    "past": true
+   },
+   {
+    "date": "2026-11-13",
+    "tmax": 28.8,
+    "tmin": 16.2,
+    "rain_mm": 0.0,
+    "rain_prob": 0,
+    "et0_mm": 5.05,
+    "rh_max": 79,
+    "rh_min": 29,
+    "wind_max_kmh": 12.6,
+    "weather": "Overcast",
+    "past": true
+   },
+   {
+    "date": "2026-11-14",
+    "tmax": 28.9,
+    "tmin": 18.7,
+    "rain_mm": 0.0,
+    "rain_prob": 0,
+    "et0_mm": 4.26,
+    "rh_max": 99,
+    "rh_min": 39,
+    "wind_max_kmh": 11.0,
+    "weather": "Fog",
+    "past": false
+   },
+   {
+    "date": "2026-11-15",
+    "tmax": 29.0,
+    "tmin": 18.6,
+    "rain_mm": 0.0,
+    "rain_prob": 0,
+    "et0_mm": 4.12,
+    "rh_max": 91,
+    "rh_min": 43,
+    "wind_max_kmh": 10.4,
+    "weather": "Overcast",
+    "past": false
+   },
+   {
+    "date": "2026-11-16",
+    "tmax": 29.2,
+    "tmin": 19.2,
+    "rain_mm": 0.0,
+    "rain_prob": 2,
+    "et0_mm": 3.98,
+    "rh_max": 81,
+    "rh_min": 39,
+    "wind_max_kmh": 9.8,
+    "weather": "Overcast",
+    "past": false
+   },
+   {
+    "date": "2026-11-17",
+    "tmax": 29.8,
+    "tmin": 17.5,
+    "rain_mm": 0.0,
+    "rain_prob": 0,
+    "et0_mm": 5.04,
+    "rh_max": 76,
+    "rh_min": 32,
+    "wind_max_kmh": 10.9,
+    "weather": "Partly cloudy",
+    "past": false
+   },
+   {
+    "date": "2026-11-18",
+    "tmax": 30.0,
+    "tmin": 16.2,
+    "rain_mm": 0.0,
+    "rain_prob": 2,
+    "et0_mm": 5.32,
+    "rh_max": 62,
+    "rh_min": 26,
+    "wind_max_kmh": 13.4,
+    "weather": "Overcast",
+    "past": false
+   },
+   {
+    "date": "2026-11-19",
+    "tmax": 30.5,
+    "tmin": 16.4,
+    "rain_mm": 0.0,
+    "rain_prob": 16,
+    "et0_mm": 5.06,
+    "rh_max": 64,
+    "rh_min": 27,
+    "wind_max_kmh": 10.8,
+    "weather": "Overcast",
+    "past": false
+   },
+   {
+    "date": "2026-11-20",
+    "tmax": 31.2,
+    "tmin": 16.4,
+    "rain_mm": 0.0,
+    "rain_prob": 25,
+    "et0_mm": 5.14,
+    "rh_max": 66,
+    "rh_min": 26,
+    "wind_max_kmh": 10.7,
+    "weather": "Overcast",
+    "past": false
+   }
+  ],
+  "soil_moisture_daily": [
+   {
+    "date": "2026-11-07",
+    "sm_7_28": 0.196
+   },
+   {
+    "date": "2026-11-08",
+    "sm_7_28": 0.188
+   },
+   {
+    "date": "2026-11-09",
+    "sm_7_28": 0.185
+   },
+   {
+    "date": "2026-11-10",
+    "sm_7_28": 0.192
+   },
+   {
+    "date": "2026-11-11",
+    "sm_7_28": 0.196
+   },
+   {
+    "date": "2026-11-12",
+    "sm_7_28": 0.2
+   },
+   {
+    "date": "2026-11-13",
+    "sm_7_28": 0.197
+   },
+   {
+    "date": "2026-11-14",
+    "sm_7_28": 0.189
+   },
+   {
+    "date": "2026-11-15",
+    "sm_7_28": 0.184
+   },
+   {
+    "date": "2026-11-16",
+    "sm_7_28": 0.179
+   },
+   {
+    "date": "2026-11-17",
+    "sm_7_28": 0.174
+   },
+   {
+    "date": "2026-11-18",
+    "sm_7_28": 0.168
+   },
+   {
+    "date": "2026-11-19",
+    "sm_7_28": 0.163
+   },
+   {
+    "date": "2026-11-20",
+    "sm_7_28": 0.161
+   }
+  ],
+  "elevation_m": 701.0,
+  "timezone": "Asia/Kolkata"
+ },
+ "irrigation": {
+  "action": "IRRIGATE",
+  "advice": "Irrigate about 39 mm in the next 1-2 days (\u2248 1,225 m\u00b3 = 1,225,380 litres for 3.14 ha; 157,828 litres per acre).",
+  "kc": 1.2,
+  "kc_basis": "Kc = 1.25*NDVI + 0.2 (clamped 0.3-1.2)",
+  "last7": {
+   "etc_mm": 38.8,
+   "rain_mm": 1.5,
+   "effective_rain_mm": 0.0,
+   "deficit_mm": 38.8
+  },
+  "next3": {
+   "etc_mm": 14.8,
+   "rain_mm": 0,
+   "effective_rain_mm": 0.0,
+   "deficit_mm": 14.8
+  },
+  "root_zone_sm": 0.191,
+  "root_zone_depletion": 0.61,
+  "refill_trigger_sm": 0.21,
+  "suggested_depth_mm": 39.0,
+  "assumptions": "Generic loam (FC 0.30, WP 0.12 m\u00b3/m\u00b3), effective rain = 80% of days >5 mm. Calibrate with the farm's soil type and crop stage."
+ },
+ "alerts": [],
+ "climate_30d": {
+  "period": "2026-10-13 to 2026-11-11",
+  "days_with_data": 29,
+  "mean_temp_c": 22.9,
+  "mean_tmax_c": 27.6,
+  "mean_tmin_c": 19.3,
+  "abs_max_c": 30.71,
+  "abs_min_c": 15.66,
+  "total_rain_mm": 225.6,
+  "rainy_days_gt2_5mm": 16,
+  "mean_rh_pct": 84.0,
+  "mean_solar_kwh_m2_day": 17.5,
+  "growing_degree_days_base10": 374.0,
+  "source": "NASA POWER daily (MERRA-2 / CERES), 0.5\u00b0 grid"
+ },
+ "soil_properties": {
+  "properties": {
+   "cec": {
+    "unit": "cmol(c)/kg",
+    "0-5cm": 26.5,
+    "5-15cm": 26.8,
+    "15-30cm": 27.0
+   },
+   "clay": {
+    "unit": "%",
+    "0-5cm": 33.3,
+    "5-15cm": 34.4,
+    "15-30cm": 34.2
+   },
+   "nitrogen": {
+    "unit": "g/kg",
+    "0-5cm": 1.77,
+    "5-15cm": 1.37,
+    "15-30cm": 1.42
+   },
+   "phh2o": {
+    "unit": "-",
+    "0-5cm": 6.6,
+    "5-15cm": 6.6,
+    "15-30cm": 6.6
+   },
+   "sand": {
+    "unit": "%",
+    "0-5cm": 40.5,
+    "5-15cm": 39.5,
+    "15-30cm": 38.9
+   },
+   "silt": {
+    "unit": "%",
+    "0-5cm": 26.2,
+    "5-15cm": 26.1,
+    "15-30cm": 26.8
+   },
+   "soc": {
+    "unit": "g/kg",
+    "0-5cm": 24.3,
+    "5-15cm": 14.2,
+    "15-30cm": 16.1
+   }
+  },
+  "source": "ISRIC SoilGrids 250 m (modelled, not a soil test)"
+ },
+ "revisit": {
+  "table": [
+   {
+    "mission": "Sentinel-2 (A/B/C) MSI",
+    "agency": "ESA",
+    "resolution": "10/20/60 m optical",
+    "revisit": "5 days (constellation); 2-3 days at mid-latitudes with tile overlap",
+    "free": true
+   },
+   {
+    "mission": "Landsat 8 + 9 OLI/TIRS",
+    "agency": "NASA/USGS",
+    "resolution": "30 m optical, 100 m thermal",
+    "revisit": "16 days each, 8 days combined",
+    "free": true
+   },
+   {
+    "mission": "Sentinel-1 C-band SAR",
+    "agency": "ESA",
+    "resolution": "10 m radar (sees through clouds)",
+    "revisit": "12 days per satellite (6 days with 2 satellites)",
+    "free": true
+   },
+   {
+    "mission": "Resourcesat-2/2A LISS-IV",
+    "agency": "ISRO",
+    "resolution": "5.8 m optical",
+    "revisit": "5 days nominal (steerable), 24 days nadir repeat",
+    "free": "via Bhuvan/NRSC (registration)"
+   },
+   {
+    "mission": "MODIS Terra/Aqua",
+    "agency": "NASA",
+    "resolution": "250-500 m",
+    "revisit": "daily",
+    "free": true
+   },
+   {
+    "mission": "NISAR L+S-band SAR",
+    "agency": "NASA/ISRO",
+    "resolution": "3-10 m radar",
+    "revisit": "12 days",
+    "free": true
+   }
+  ],
+  "sentinel2": {
+   "last_acquisitions": [
+    {
+     "date": "2026-11-13",
+     "platform": "Sentinel-2C",
+     "relative_orbit": 19,
+     "tile": "43PFP",
+     "tile_cloud_pct": 7.1
+    },
+    {
+     "date": "2026-11-11",
+     "platform": "Sentinel-2B",
+     "relative_orbit": 62,
+     "tile": "43PGP",
+     "tile_cloud_pct": 35.9
+    },
+    {
+     "date": "2026-11-08",
+     "platform": "Sentinel-2B",
+     "relative_orbit": 19,
+     "tile": "43PFP",
+     "tile_cloud_pct": 54.7
+    },
+    {
+     "date": "2026-11-06",
+     "platform": "Sentinel-2C",
+     "relative_orbit": 62,
+     "tile": "43PGP",
+     "tile_cloud_pct": 62.0
+    },
+    {
+     "date": "2026-11-05",
+     "platform": "Sentinel-2A",
+     "relative_orbit": 19,
+     "tile": "43PFP",
+     "tile_cloud_pct": 78.0
+    },
+    {
+     "date": "2026-11-03",
+     "platform": "Sentinel-2C",
+     "relative_orbit": 19,
+     "tile": "43PFP",
+     "tile_cloud_pct": 90.1
+    },
+    {
+     "date": "2026-11-01",
+     "platform": "Sentinel-2B",
+     "relative_orbit": 62,
+     "tile": "43PFP",
+     "tile_cloud_pct": 58.4
+    },
+    {
+     "date": "2026-10-29",
+     "platform": "Sentinel-2A",
+     "relative_orbit": 62,
+     "tile": "43PFP",
+     "tile_cloud_pct": 2.1
+    }
+   ],
+   "observed_median_gap_days": 2,
+   "acquisitions_last_60d": 27,
+   "estimated_next": [
+    {
+     "date": "2026-11-16",
+     "relative_orbit": 62
+    },
+    {
+     "date": "2026-11-18",
+     "relative_orbit": 19
+    },
+    {
+     "date": "2026-11-21",
+     "relative_orbit": 62
+    },
+    {
+     "date": "2026-11-23",
+     "relative_orbit": 19
+    }
+   ],
+   "method": "last pass of each relative orbit + 5-day repeat"
+  },
+  "landsat": {
+   "last_acquisitions": [
+    {
+     "date": "2026-11-03",
+     "platform": "landsat-9"
+    },
+    {
+     "date": "2026-10-26",
+     "platform": "landsat-8"
+    },
+    {
+     "date": "2026-10-18",
+     "platform": "landsat-9"
+    },
+    {
+     "date": "2026-10-10",
+     "platform": "landsat-8"
+    },
+    {
+     "date": "2026-10-02",
+     "platform": "landsat-9"
+    },
+    {
+     "date": "2026-09-24",
+     "platform": "landsat-8"
+    },
+    {
+     "date": "2026-09-16",
+     "platform": "landsat-9"
+    }
+   ],
+   "estimated_next": "2026-11-19"
+  },
+  "sentinel1": {
+   "last_acquisitions": [
+    {
+     "date": "2026-11-02",
+     "platform": "sentinel-1d"
+    },
+    {
+     "date": "2026-10-21",
+     "platform": "sentinel-1d"
+    },
+    {
+     "date": "2026-10-09",
+     "platform": "sentinel-1d"
+    },
+    {
+     "date": "2026-09-27",
+     "platform": "sentinel-1d"
+    },
+    {
+     "date": "2026-09-15",
+     "platform": "sentinel-1d"
+    }
+   ],
+   "estimated_next": "2026-11-26"
+  }
+ },
+ "sources": [
+  "Sentinel-2 L2A, ESA WorldCover, Landsat C2 L2, Sentinel-1 GRD \u2014 Microsoft Planetary Computer STAC (anonymous)",
+  "Open-Meteo forecast API (no key)",
+  "NASA POWER daily point API (no key)",
+  "ISRIC SoilGrids v2 (no key, often slow)"
+ ],
+ "elapsed_s": 8.7
+}

@@ -1,0 +1,534 @@
+{
+ "APMC Hubballi|Dharwad": {
+  "lat": 15.3518378,
+  "lon": 75.1379848,
+  "precision": "town",
+  "query": "Hubballi, Dharwad, Karnataka",
+  "display": "Hubballi, Hubballi Urban Taluku, Dharwad, Karnataka, 580020, India"
+ },
+ "APMC THIRTHAHALLI|Shivamogga": {
+  "lat": 13.6901992,
+  "lon": 75.2463699,
+  "precision": "town",
+  "query": "Tirthahalli, Karnataka",
+  "display": "Tirthahalli, Tirthahalli taluk, Shimoga, Karnataka, 577432, India"
+ },
+ "Bagalkot APMC|Bagalkot": {
+  "lat": 16.1734274,
+  "lon": 75.659552,
+  "precision": "town",
+  "query": "Bagalkot, Bagalkot, Karnataka",
+  "display": "Bagalkot Multi Speciality Dental clinic, Bahanpur - Gadankeri Highway, Vidyagiri, Bagalkote, Bagalakote taluk, Bagalkote"
+ },
+ "Bagepalli APMC|Chikkaballapur": {
+  "lat": 13.7836611,
+  "lon": 77.7972379,
+  "precision": "town",
+  "query": "Bagepalli, Karnataka",
+  "display": "Bagepalli, Bagepalli taluk, Chikkaballapura, Karnataka, 561207, India"
+ },
+ "Bailahongal APMC|Belagavi": {
+  "lat": 15.816422,
+  "lon": 74.8568692,
+  "precision": "town",
+  "query": "Bailhongal, Karnataka",
+  "display": "Bailahongala, Bailahongala taluku, Belagavi, Karnataka, 591102, India"
+ },
+ "Ballari APMC|Bellary": {
+  "lat": 15.1430224,
+  "lon": 76.9173277,
+  "precision": "town",
+  "query": "Ballari, Bellary, Karnataka",
+  "display": "Ballari, Bellary taluk, Ballari, Karnataka, 583101, India"
+ },
+ "Bangarpet APMC|Kolar": {
+  "lat": 12.98822,
+  "lon": 78.1812561,
+  "precision": "town",
+  "query": "Bangarpet, Kolar, Karnataka",
+  "display": "Bangarapete, Bangarapet taluk, Kolar, Karnataka, 563114, India"
+ },
+ "Bantwala APMC|Dakshina Kannada": {
+  "lat": 12.8953789,
+  "lon": 75.0408618,
+  "precision": "town",
+  "query": "Bantwal, Dakshina Kannada, Karnataka",
+  "display": "Bantwal, Bantwal taluk, Dakshina Kannada, Karnataka, 574211, India"
+ },
+ "Basava Kalayana APMC|Bidar": {
+  "lat": 17.8697666,
+  "lon": 76.9509533,
+  "precision": "town",
+  "query": "Basavakalyan, Bidar, Karnataka",
+  "display": "Basavakalyan, Basavakalyana taluku, Bidar, Karnataka, 585327, India"
+ },
+ "Belgaum APMC|Belagavi": {
+  "lat": 15.8572666,
+  "lon": 74.5069343,
+  "precision": "town",
+  "query": "Belagavi, Belagavi, Karnataka",
+  "display": "Belagavi, Belagavi taluku, Belagavi, Karnataka, 590001, India"
+ },
+ "Belthangdi APMC|Dakshina Kannada": {
+  "lat": 12.9847719,
+  "lon": 75.2808473,
+  "precision": "town",
+  "query": "Belthangady, Dakshina Kannada, Karnataka",
+  "display": "Belthangady Court, NH73, Maddadka, Guruvayanakere, Beltangadi taluk, Dakshina Kannada, Karnataka, 574228, India"
+ },
+ "Bengaluru APMC|Bengaluru": {
+  "lat": 12.9767936,
+  "lon": 77.590082,
+  "precision": "town",
+  "query": "Bengaluru, Bengaluru, Karnataka",
+  "display": "Bengaluru, Bangalore North, Bengaluru Urban, Karnataka, India"
+ },
+ "Bhadravathi APMC|Shivamogga": {
+  "lat": 13.8502075,
+  "lon": 75.7037863,
+  "precision": "town",
+  "query": "Bhadravathi, Shivamogga, Karnataka",
+  "display": "Bhadravathi, Bhadravati taluk, Shimoga, Karnataka, 577300, India"
+ },
+ "Bidar APMC|Bidar": {
+  "lat": 17.9149369,
+  "lon": 77.4880494,
+  "precision": "town",
+  "query": "Bidar, Bidar, Karnataka",
+  "display": "Bidar, Bidar taluku, Bidar, Karnataka, 585400, India"
+ },
+ "Binny Mill (FF&V) Bengaluru APMC|Bengaluru": {
+  "lat": 12.970623,
+  "lon": 77.5662423,
+  "precision": "town",
+  "query": "Binny Mill Bengaluru, Bengaluru, Karnataka",
+  "display": "Binny Mill, Tank Bund Road, Nagamma Nagar, Binnypete, Bengaluru Central City Corporation, Bengaluru, Bangalore North, Be"
+ },
+ "Challakere APMC|Chitradurga": {
+  "lat": 14.3167885,
+  "lon": 76.6521533,
+  "precision": "town",
+  "query": "Challakere, Chitradurga, Karnataka",
+  "display": "Challakere, Challakere taluku, Chitradurga, Karnataka, 577522, India"
+ },
+ "Chamarajanagar APMC|Chamarajanagar": {
+  "lat": 11.9346006,
+  "lon": 76.9328209,
+  "precision": "town",
+  "query": "Chamarajanagar, Chamarajanagar, Karnataka",
+  "display": "Chamarajanagar, Nanjangudu-Chamarajanagar Road, Chamarajanagara, Chamarajanagara taluk, Chamarajanagar, Karnataka, 57131"
+ },
+ "Channagiri APMC|Davangere": {
+  "lat": 14.4313535,
+  "lon": 75.9207611,
+  "precision": "town",
+  "query": "Channagiri, Davangere, Karnataka",
+  "display": "Channagiri Road, Davanagere, Davanagere Taluku, Davanagere, Karnataka, 577000, India"
+ },
+ "Chincholi APMC|Kalaburagi": {
+  "lat": 17.465199,
+  "lon": 77.4189669,
+  "precision": "town",
+  "query": "Chincholi, Kalaburagi, Karnataka",
+  "display": "Chincholi, Chincholi taluku, Kalaburagi, Karnataka, 585307, India"
+ },
+ "Chintamani APMC|Chikkaballapur": {
+  "lat": 13.3979258,
+  "lon": 78.0533166,
+  "precision": "town",
+  "query": "Chintamani, Chikkaballapur, Karnataka",
+  "display": "Dhanush Hospital, Chintamani, Filter Bed Road, Chintamani, Chintamani taluk, Chikkaballapura, Karnataka, 563125, India"
+ },
+ "Davangere APMC|Davangere": {
+  "lat": 14.4679807,
+  "lon": 75.9195682,
+  "precision": "town",
+  "query": "Davangere, Davangere, Karnataka",
+  "display": "Davanagere, SH76, Davangere City Corporation Offices, K.B. Extension, Davanagere, Davanagere Taluku, Davanagere, Karnata"
+ },
+ "Doddaballapur APMC|Bengaluru Rural": {
+  "lat": 13.2929583,
+  "lon": 77.5431463,
+  "precision": "town",
+  "query": "Doddaballapur, Bengaluru Rural, Karnataka",
+  "display": "Doddaballapura, Doddaballapura taluk, Bengaluru North, Karnataka, 561203, India"
+ },
+ "Gadag APMC|Gadag": {
+  "lat": 15.4221812,
+  "lon": 75.6376639,
+  "precision": "town",
+  "query": "Gadag, Gadag, Karnataka",
+  "display": "Gadag-Betageri, Gadag taluk, Gadag, Karnataka, 582101, India"
+ },
+ "Gangavathi APMC|Koppal": {
+  "lat": 15.4308872,
+  "lon": 76.5319723,
+  "precision": "town",
+  "query": "Gangavathi, Koppal, Karnataka",
+  "display": "Gangavathi, Gangavati taluku, Koppal, Karnataka, 583227, India"
+ },
+ "Gonikappal APMC|Kodagu": {
+  "lat": 12.1844231,
+  "lon": 75.9253127,
+  "precision": "town",
+  "query": "Gonikoppal, Kodagu, Karnataka",
+  "display": "Main Road, Gonikoppal, Gonikoppalu, Ponnampete taluk, Kodagu, Karnataka, 571218, India"
+ },
+ "Haliyala APMC|Uttara Kannada": {
+  "lat": 14.4506805,
+  "lon": 74.8260301,
+  "precision": "town",
+  "query": "Haliyala, Uttara Kannada, Karnataka",
+  "display": "Haliyala, Onithota, Siddapura taluk, Uttara Kannada, Karnataka, 581347, India"
+ },
+ "Hanagal APMC|Haveri": {
+  "lat": 14.7653513,
+  "lon": 75.1244336,
+  "precision": "town",
+  "query": "Hanagal, Haveri, Karnataka",
+  "display": "Hanagalla, Hanagal taluk, Haveri, Karnataka, 581104, India"
+ },
+ "HarappanaHalli APMC|Davangere": {
+  "lat": 12.7904755,
+  "lon": 77.6226863,
+  "precision": "town",
+  "query": "HarappanaHalli, Karnataka",
+  "display": "Harappanahalli, Anekal, Bengaluru Urban, Karnataka, 560105, India"
+ },
+ "Haveri APMC|Haveri": {
+  "lat": 14.7874825,
+  "lon": 75.3996731,
+  "precision": "town",
+  "query": "Haveri, Haveri, Karnataka",
+  "display": "Haveri, Haveri taluku, Haveri, Karnataka, 581110, India"
+ },
+ "Hiriyur APMC|Chitradurga": {
+  "lat": 13.9443237,
+  "lon": 76.6167407,
+  "precision": "town",
+  "query": "Hiriyur, Chitradurga, Karnataka",
+  "display": "Hiriyur, Hiriyuru taluk, Chitradurga, Karnataka, 572143, India"
+ },
+ "Holalkere APMC|Chitradurga": {
+  "lat": 14.0428326,
+  "lon": 76.1844875,
+  "precision": "town",
+  "query": "Holalkere, Chitradurga, Karnataka",
+  "display": "Holalkere, Holalkere taluk, Chitradurga, Karnataka, 577526, India"
+ },
+ "Honnali APMC|Davangere": {
+  "lat": 14.2389785,
+  "lon": 75.6457434,
+  "precision": "town",
+  "query": "Honnali, Karnataka",
+  "display": "Honnali, Honnali taluku, Davanagere, Karnataka, 577217, India"
+ },
+ "Honnavar APMC|Uttara Kannada": {
+  "lat": 14.3159009,
+  "lon": 74.432402,
+  "precision": "town",
+  "query": "Honnavar, Uttara Kannada, Karnataka",
+  "display": "Honnavar, NH66, Ramatirtha, Honnavar taluku, Uttara Kannada, Karnataka, 581334, India"
+ },
+ "Hoskote APMC|Bengaluru Rural": {
+  "lat": 13.073014,
+  "lon": 77.7921381,
+  "precision": "town",
+  "query": "Hoskote, Bengaluru Rural, Karnataka",
+  "display": "Hoskote, Hosakote taluk, Bengaluru North, Karnataka, 562114, India"
+ },
+ "Hungund APMC|Bagalkot": {
+  "lat": 16.06689,
+  "lon": 76.059741,
+  "precision": "town",
+  "query": "Hungund, Bagalkot, Karnataka",
+  "display": "Hungund Government Hospital, SH60, Hunagund, Hunagunda taluku, Bagalkote, Karnataka, 587118, India"
+ },
+ "Hunsur APMC|Mysuru": {
+  "lat": 12.3035086,
+  "lon": 76.2928095,
+  "precision": "town",
+  "query": "Hunsur, Mysuru, Karnataka",
+  "display": "Hunsur, Hunasuru taluk, Mysuru District, Karnataka, 571105, India"
+ },
+ "Indi APMC|Vijayapura": {
+  "lat": 17.1744599,
+  "lon": 75.9553764,
+  "precision": "town",
+  "query": "Indi, Vijayapura, Karnataka",
+  "display": "Indi, Indi taluku, Vijayapura, Karnataka, 586200, India"
+ },
+ "Kadur APMC|Chikkamagaluru": {
+  "lat": 13.5502511,
+  "lon": 76.0087022,
+  "precision": "town",
+  "query": "Kadur, Chikkamagaluru, Karnataka",
+  "display": "Kadur Junction, minor road, Kaduru, Kaduru taluk, Chikkamagaluru, Karnataka, 577548, India"
+ },
+ "Kalaburagi APMC|Kalaburagi": {
+  "lat": 17.3310003,
+  "lon": 76.8334228,
+  "precision": "town",
+  "query": "Kalaburagi, Kalaburagi, Karnataka",
+  "display": "Kalaburagi, Kalaburagi taluku, Kalaburagi, Karnataka, 585101, India"
+ },
+ "Kampli APMC|Bellary": {
+  "lat": 15.4064959,
+  "lon": 76.6036531,
+  "precision": "town",
+  "query": "Kampli, Bellary, Karnataka",
+  "display": "Kampli Government Hospital, SH49, Kampli, Kampli taluk, Ballari, Karnataka, 583132, India"
+ },
+ "Kanakagiri APMC|Koppal": {
+  "lat": 15.5696792,
+  "lon": 76.4189879,
+  "precision": "town",
+  "query": "Kanakagiri, Koppal, Karnataka",
+  "display": "Kanakagiri, Kanakagiri taluku, Koppal, Karnataka, 584119, India"
+ },
+ "Kanakapura APMC|Bengaluru South": {
+  "lat": 12.5450268,
+  "lon": 77.4199095,
+  "precision": "town",
+  "query": "Kanakapura, Bengaluru South, Karnataka",
+  "display": "Kanakapura, Kanakapura taluk, Bengaluru South, Karnataka, 562117, India"
+ },
+ "Kolar APMC|Kolar": {
+  "lat": 13.123993,
+  "lon": 78.1329276,
+  "precision": "town",
+  "query": "Kolar, Kolar, Karnataka",
+  "display": "Kolar, S.N.R Hospital Road, Harohalli, Kolar, Kolar taluk, Kolar, Karnataka, 563101, India"
+ },
+ "Koppal APMC|Koppal": {
+  "lat": 15.3484144,
+  "lon": 76.1547421,
+  "precision": "town",
+  "query": "Koppal, Koppal, Karnataka",
+  "display": "Koppala, Koppala taluku, Koppal, Karnataka, 583231, India"
+ },
+ "Kottur APMC|Vijayanagara": {
+  "lat": 14.8243692,
+  "lon": 76.2252832,
+  "precision": "town",
+  "query": "Kottur, Vijayanagara, Karnataka",
+  "display": "Kotturu, Kotturu taluku, Vijayanagara, Karnataka, 583134, India"
+ },
+ "Kudchi APMC|Belagavi": {
+  "lat": 16.6262255,
+  "lon": 74.8513677,
+  "precision": "town",
+  "query": "Kudchi, Belagavi, Karnataka",
+  "display": "Junnediya Edu Society Pu College Kudchi, SH53, Kudachi, Raybag taluk, Belagavi, Karnataka, 591311, India"
+ },
+ "Kumta APMC|Uttara Kannada": {
+  "lat": 14.4372403,
+  "lon": 74.421244,
+  "precision": "town",
+  "query": "Kumta, Uttara Kannada, Karnataka",
+  "display": "Kumta, Sirsi - Kumta Highway   ಸಿರ್ಸಿ - ಕುಮಟಾ ಹೆದ್ದಾರಿ, Manaki, Kumata taluk, Uttara Kannada, Karnataka, 581343, India"
+ },
+ "Kundapura APMC|Udupi": {
+  "lat": 13.6133737,
+  "lon": 74.7286856,
+  "precision": "town",
+  "query": "Kundapura, Udupi, Karnataka",
+  "display": "Kundapura, Railway Station Road, Kandhavara, Koni, Kundapura, Udupi, Karnataka, 576211, India"
+ },
+ "Laxmeshwar APMC|Gadag": {
+  "lat": 15.12373,
+  "lon": 75.4741167,
+  "precision": "town",
+  "query": "Lakshmeshwar, Karnataka",
+  "display": "Lakshmeshwar KSRTC Bus stand, SH6, Bastibana, Lakshmeshvara, Lakshmeshvara taluku, Gadag, Karnataka, 582116, India"
+ },
+ "Lingasugur APMC|Raichur": {
+  "lat": 16.1563,
+  "lon": 76.5242,
+  "precision": "town",
+  "query": "Lingasugur, Raichur, Karnataka",
+  "display": "Lingasugur, Lingasuguru taluku, Raichur, Karnataka, 584122, India"
+ },
+ "Malur APMC|Kolar": {
+  "lat": 13.0058697,
+  "lon": 77.9393648,
+  "precision": "town",
+  "query": "Malur, Kolar, Karnataka",
+  "display": "Maluru, Maluru taluk, Kolar, Karnataka, 562116, India"
+ },
+ "Manvi APMC|Raichur": {
+  "lat": 15.9967483,
+  "lon": 77.0481181,
+  "precision": "town",
+  "query": "Manvi, Raichur, Karnataka",
+  "display": "Manvi, Manvi taluku, Raichur, Karnataka, 584123, India"
+ },
+ "Mudigere APMC|Chikkamagaluru": {
+  "lat": 13.1333335,
+  "lon": 75.6419184,
+  "precision": "town",
+  "query": "Mudigere, Chikkamagaluru, Karnataka",
+  "display": "Mudigere, Mudigere taluk, Chikkamagaluru, Karnataka, 577132, India"
+ },
+ "Mulbagal APMC|Kolar": {
+  "lat": 13.1660479,
+  "lon": 78.3927241,
+  "precision": "town",
+  "query": "Mulbagal, Karnataka",
+  "display": "Mulabagilu, Mulubagilu taluk, Kolar, Karnataka, 563131, India"
+ },
+ "Mundaragi APMC|Gadag": {
+  "lat": 15.2051817,
+  "lon": 75.8840183,
+  "precision": "town",
+  "query": "Mundaragi, Gadag, Karnataka",
+  "display": "Mundaragi, Mundargi taluku, Gadag, Karnataka, 582118, India"
+ },
+ "Nanjangud APMC|Mysuru": {
+  "lat": 12.1220681,
+  "lon": 76.6843409,
+  "precision": "town",
+  "query": "Nanjangud, Mysuru, Karnataka",
+  "display": "Nanjangud Town, Mahatma Gandhi Shatabdi Road, Nanjanagudu, Nanjanagudu taluk, Mysuru District, Karnataka, 571300, India"
+ },
+ "Pandavapura APMC|Mandya": {
+  "lat": 12.5011414,
+  "lon": 76.6731501,
+  "precision": "town",
+  "query": "Pandavapura, Mandya, Karnataka",
+  "display": "Pandavapura, Pandavapura taluk, Mandya, Karnataka, 571484, India"
+ },
+ "Periyapatna APMC|Mysuru": {
+  "lat": 12.3372494,
+  "lon": 76.0988013,
+  "precision": "town",
+  "query": "Periyapatna, Mysuru, Karnataka",
+  "display": "Periyapatna, Piriyapattana taluk, Mysuru District, Karnataka, 571107, India"
+ },
+ "Puttur APMC|Dakshina Kannada": {
+  "lat": 12.7632858,
+  "lon": 75.2018421,
+  "precision": "town",
+  "query": "Puttur, Dakshina Kannada, Karnataka",
+  "display": "Puttur, Putturu taluk, Dakshina Kannada, Karnataka, 574200, India"
+ },
+ "Raichur APMC|Raichur": {
+  "lat": 16.1983225,
+  "lon": 77.3527444,
+  "precision": "town",
+  "query": "Raichur, Raichur, Karnataka",
+  "display": "Raichur, Rayachuru taluku, Raichur, Karnataka, 584100, India"
+ },
+ "Ramanagara APMC|Bengaluru South": {
+  "lat": 12.7252766,
+  "lon": 77.2804797,
+  "precision": "town",
+  "query": "Ramanagara, Bengaluru South, Karnataka",
+  "display": "Ramanagara, Ramanagara taluk, Bengaluru South, Karnataka, 571511, India"
+ },
+ "Ranebennur APMC|Haveri": {
+  "lat": 14.6165795,
+  "lon": 75.6341529,
+  "precision": "town",
+  "query": "Ranebennur, Karnataka",
+  "display": "Ranebennur, Ranebennuru taluk, Haveri, Karnataka, 581115, India"
+ },
+ "Rona APMC|Gadag": {
+  "lat": 15.6996944,
+  "lon": 75.7349912,
+  "precision": "town",
+  "query": "Rona, Gadag, Karnataka",
+  "display": "Ron, Rona taluku, Gadag, Karnataka, 582209, India"
+ },
+ "Santhesargur APMC|Mysuru": {
+  "lat": 12.1968318,
+  "lon": 76.6120468,
+  "precision": "district (approx.)",
+  "query": "Mysuru district, Karnataka",
+  "display": "Mysuru District, Karnataka, India"
+ },
+ "Shimoga APMC|Shivamogga": {
+  "lat": 13.9326093,
+  "lon": 75.574978,
+  "precision": "town",
+  "query": "Shivamogga, Shivamogga, Karnataka",
+  "display": "Shivamogga, Shivamogga taluk, Shimoga, Karnataka, 577200, India"
+ },
+ "Siddapur APMC|Uttara Kannada": {
+  "lat": 14.3409562,
+  "lon": 74.8924253,
+  "precision": "town",
+  "query": "Siddapura, Uttara Kannada, Karnataka",
+  "display": "Siddapura, Siddapura taluk, Uttara Kannada, Karnataka, India"
+ },
+ "Sindhanur APMC|Raichur": {
+  "lat": 15.7685584,
+  "lon": 76.7549926,
+  "precision": "town",
+  "query": "Sindhanur, Raichur, Karnataka",
+  "display": "Sindhanur, Sindhanuru taluku, Raichur, Karnataka, 584128, India"
+ },
+ "Sirsi APMC|Uttara Kannada": {
+  "lat": 14.6192362,
+  "lon": 74.8388611,
+  "precision": "town",
+  "query": "Sirsi, Uttara Kannada, Karnataka",
+  "display": "Sirsi, Shirasi Taluk, Uttara Kannada, Karnataka, 581401, India"
+ },
+ "Soundati APMC|Belagavi": {
+  "lat": 15.7671818,
+  "lon": 75.1174834,
+  "precision": "town",
+  "query": "Saundatti, Karnataka",
+  "display": "Savadatti, Savadatti taluku, Belagavi, Karnataka, 591126, India"
+ },
+ "Srinivasapur APMC|Kolar": {
+  "lat": 13.340085,
+  "lon": 78.2117487,
+  "precision": "town",
+  "query": "Srinivaspur, Karnataka",
+  "display": "Srinivaspur, Srinivasapura taluku, Kolar, Karnataka, 563135, India"
+ },
+ "Srirangapattana APMC|Mandya": {
+  "lat": 12.4020751,
+  "lon": 76.6989428,
+  "precision": "town",
+  "query": "Srirangapattana, Mandya, Karnataka",
+  "display": "Srirangapattana taluk, Mandya, Karnataka, India"
+ },
+ "Sulya APMC|Dakshina Kannada": {
+  "lat": 12.5576644,
+  "lon": 75.3907575,
+  "precision": "town",
+  "query": "Sulya, Dakshina Kannada, Karnataka",
+  "display": "Sulya, Sulya taluk, Dakshina Kannada, Karnataka, 574239, India"
+ },
+ "Talikot APMC|Vijayapura": {
+  "lat": 16.474468,
+  "lon": 76.311706,
+  "precision": "town",
+  "query": "Talikoti, Karnataka",
+  "display": "Talikoti, Talakoti Taluku, Vijayapura, Karnataka, 586214, India"
+ },
+ "Udupi APMC|Udupi": {
+  "lat": 13.3419169,
+  "lon": 74.7473232,
+  "precision": "town",
+  "query": "Udupi, Udupi, Karnataka",
+  "display": "Udupi, Udupi taluku, Udupi, Karnataka, 576101, India"
+ },
+ "Vijayapura APMC|Vijayapura": {
+  "lat": 16.8269911,
+  "lon": 75.7175387,
+  "precision": "town",
+  "query": "Vijayapura, Vijayapura, Karnataka",
+  "display": "Vijayapura, Bijapur Taluk, Vijayapura, Karnataka, 586101, India"
+ },
+ "Yellapur APMC|Uttara Kannada": {
+  "lat": 14.9634438,
+  "lon": 74.7120788,
+  "precision": "town",
+  "query": "Yellapura, Uttara Kannada, Karnataka",
+  "display": "Yellapura, Yallapura taluk, Uttara Kannada, Karnataka, 581359, India"
+ }
+}

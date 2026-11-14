@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Farm Quality Passport · MandiMitra</title>
+<link rel="stylesheet" href="/static/app.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>body{background:#f5f7f4}.wrap{max-width:1000px;margin:0 auto;padding:16px}.hdr{background:linear-gradient(90deg,#0f3d22,#15803d);color:#fff;border-radius:16px;padding:18px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.hdr h1{margin:0;font-size:22px}.hdr .qr{background:#fff;border-radius:12px;padding:6px;margin-left:auto}.ver{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.ver span{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:8px 12px;font-size:12.5px}.ver b{display:block;font-size:15px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media(max-width:700px){.g2{grid-template-columns:1fr}.hdr .qr{margin-left:0}}
+@media print{.noprint{display:none}}</style></head><body><div class="wrap" id="app"><div class="sk" style="height:120px"></div><div class="sk" style="height:300px"></div></div>
+<script>
+const id=location.pathname.split('/').pop(),MN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const f=(v,d=2)=>v==null||isNaN(v)?'–':(+v).toFixed(d);
+fetch('/api/passport/'+id).then(r=>{if(!r.ok)throw new Error('Passport not found');return r.json()}).then(d=>{
+ const F=d.farm,S=d.satellite,sc=S.scene||{},o=d.organic,h=d.health,I=S.indices||{},ce=d.crop_estimate||{},sg=d.soil&&d.soil.properties;
+ const lvl=o.level==='organic'?'':o.level==='conventional'?'bad':'warn';
+ document.title=`${F.farmer} · Farm Quality Passport`;
+ document.getElementById('app').innerHTML=`
+ <div class="hdr"><div><div style="opacity:.85;font-size:12px;letter-spacing:.08em">🛡 FARM QUALITY PASSPORT · ಹೊಲದ ಗುಣಮಟ್ಟ ಪಾಸ್‌ಪೋರ್ಟ್</div><h1>${F.farmer}</h1>
+ <div style="opacity:.9">${F.village||''} · ${F.crop} · ${F.area_acres||'–'} acres · ${F.lat.toFixed(4)}, ${F.lon.toFixed(4)}</div>
+ ${F.demo?'<div style="margin-top:6px"><span class="pill warn">DEMO FARM: sample input entries for the walkthrough</span></div>':''}</div>
+ <img class="qr" src="${d.qr}" width="110" height="110" alt="QR"></div>
+ <div class="ver"><span>🛰 Satellite-verified<b>${sc.date||'–'}</b>${sc.satellite||''} · ${sc.days_ago??'–'} days ago</span>
+ <span>💯 Farm Health Score<b>${h.score??'–'}/100 · ${h.grade||''}</b>composite, rule-based</span>
+ <span>🌿 Organic score<b><span class="pill ${lvl}">${o.score}/100</span></b>${o.label} (self-declared)</span>
+ <span>🧾 Input log<b>${o.entries} entries</b>${o.entries_with_bill} with bill photo</span>
+ <span>🌾 Crop pattern<b style="font-size:13px">${ce.label||'–'}</b>heuristic, ${ce.confidence_level||''} confidence</span></div>
+ <div class="g2"><div class="card"><h3>🛰 Latest satellite evidence</h3><div class="live"><div><img src="${S.true_color||''}"><div class="cap">True colour · ${sc.datetime_ist||''}</div></div><div><img src="${S.ndvi_img||''}"><div class="cap">NDVI health map · mean ${f(I.NDVI&&I.NDVI.mean)}</div></div></div>
+  <div class="strip">${(S.gallery||[]).map(g=>`<figure><a href="${g.scene_preview_url}" target="_blank"><img src="${g.true_color}"></a><figcaption>${g.date.slice(8)} ${MN[+g.date.slice(5,7)-1]} · ${g.satellite_short}</figcaption></figure>`).join('')}</div>
+  <div class="disc">ESA Copernicus Sentinel-2 L2A. Scene <code>${sc.item_id||''}</code> · <a href="${sc.stac_item_url}" target="_blank">verify scene ↗</a>. White circle = farm boundary buffer (${F.radius} m).</div></div>
+ <div class="card"><h3>📈 Crop health over 12 months</h3><canvas id="c" height="190"></canvas>
+  <div class="kv" style="margin-top:8px"><span>NDVI (vigour)</span><b>${f(I.NDVI&&I.NDVI.mean)}</b><span>NDRE (chlorophyll / N)</span><b>${f(I.NDRE&&I.NDRE.mean)}</b><span>NDMI (canopy water)</span><b>${f(I.NDMI&&I.NDMI.mean)}</b><span>Land cover (ESA)</span><b>${(S.worldcover||{}).point_class||'–'}</b></div>
+  <div class="disc">${ce.reasoning||''}</div></div></div>
+ <div class="g2" style="margin-top:14px"><div class="card"><h3>🧾 Input log (self-declared by farmer)</h3>
+  <table><tr><th>Date</th><th>Type</th><th>Product</th><th>Qty</th><th>Bill</th></tr>${d.logs.map(l=>`<tr><td>${l.date}</td><td>${l.input_type}</td><td>${l.product}${l.demo?' <span class="pill grey">DEMO</span>':''}</td><td>${l.quantity||''}</td><td>${l.bill_file?`<a href="/uploads/${l.bill_file}" target="_blank">📎 bill</a>`:'–'}</td></tr>`).join('')||'<tr><td colspan=5 class="mut">No entries yet</td></tr>'}</table>
+  <div class="disc">⚠ ${o.basis} Last chemical spray: ${o.last_chemical_spray||'none declared'} (window: ${o.window_days} days).</div></div>
+ <div class="card"><h3>🪱 Soil & 🐛 current risk</h3><div class="kv">${sg?['phh2o:pH','soc:Organic carbon','nitrogen:Total N','clay:Clay','sand:Sand'].map(x=>{const[k,l]=x.split(':');return sg[k]?`<span>${l}</span><b>${sg[k]['0-5cm']} ${sg[k].unit==='-'?'':sg[k].unit}</b>`:''}).join(''):'<span class="mut">SoilGrids unavailable right now</span><b></b>'}</div>
+  <div style="margin-top:10px">${(d.pests||[]).map(r=>`<div class="risk"><span>${r.risk}</span><span class="pill ${r.level==='high'?'bad':r.level==='medium'?'warn':''}">${r.level}</span></div>`).join('')}</div>
+  <div class="disc">Soil: ISRIC SoilGrids 250 m model, not a lab test. Pest risk: weather rules for the next 3 days.</div></div></div>
+ <div class="card noprint" style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;align-items:center"><b>Share:</b><button class="btn sm" onclick="navigator.clipboard&&navigator.clipboard.writeText(location.href);this.textContent='Copied ✓'">Copy link</button>
+  <a class="btn sm" href="https://wa.me/?text=${encodeURIComponent('Farm Quality Passport: '+location.href)}" target="_blank">WhatsApp</a><button class="btn sec sm" onclick="print()">Print / PDF</button><span class="mut">Generated ${d.generated}</span></div>
+ <div class="disc" style="text-align:center">MandiMitra prototype. Satellite data is objective evidence of crop presence and vigour on the stated dates. Input and organic claims are self-declared, so ask for bills or a residue test for certification.</div>`;
+ const m=d.ndvi_monthly;new Chart(document.getElementById('c'),{type:'line',data:{labels:m.map(x=>MN[+x.month.slice(5)-1]+" '"+x.month.slice(2,4)),datasets:[{data:m.map(x=>x.ndvi),borderColor:'#15803d',backgroundColor:'rgba(21,128,61,.12)',fill:true,spanGaps:true,tension:.35}]},options:{animation:false,plugins:{legend:{display:false}},scales:{y:{min:0,max:1,title:{display:true,text:'NDVI'}}}}});
+}).catch(e=>{document.getElementById('app').innerHTML='<div class="card">'+e.message+'</div>'});
+</script></body></html>

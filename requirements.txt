@@ -1,0 +1,12 @@
+fastapi==0.162.7
+matplotlib==3.11.2
+numpy==2.5.4
+pillow==13.0.0
+planetary-computer==1.0.0
+playwright==1.65.2
+pystac-client==0.9.1
+rasterio==1.5.2
+requests==2.34.2
+uvicorn==0.54.0
+python-multipart==0.0.33
+qrcode==8.2

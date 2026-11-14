@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌾</text></svg>"><title>MandiMitra · Field Analysis</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+:root{--g:#1b7f3b;--g2:#e8f5ec;--bg:#f4f6f3;--card:#fff;--mut:#667;--warn:#b45309;--bad:#b91c1c}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:#1d2421}
+header{background:linear-gradient(90deg,#14532d,#1b7f3b);color:#fff;padding:12px 20px;display:flex;align-items:center;gap:14px}
+header h1{font-size:20px;margin:0}header span{opacity:.85;font-size:13px}
+.wrap{display:grid;grid-template-columns:380px 1fr;gap:14px;padding:14px}
+#map{height:360px;border-radius:10px}
+.panel{background:var(--card);border-radius:12px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+label{font-size:12px;color:var(--mut)}input{width:100%;padding:7px;border:1px solid #ccd;border-radius:6px;font-size:14px}
+.row{display:grid;grid-template-columns:1fr 1fr 90px;gap:8px;margin:10px 0}
+button{background:var(--g);color:#fff;border:0;border-radius:8px;padding:10px 14px;font-size:15px;cursor:pointer;width:100%}
+button:disabled{opacity:.6}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.card{background:var(--card);border-radius:12px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.card h3{margin:0 0 8px;font-size:14px;color:var(--g);text-transform:uppercase;letter-spacing:.04em}
+.big{font-size:26px;font-weight:700}.mut{color:var(--mut);font-size:12px}
+.kv{display:grid;grid-template-columns:1fr auto;gap:3px 10px;font-size:13px}.kv b{text-align:right}
+.pill{display:inline-block;padding:2px 8px;border-radius:99px;font-size:12px;background:var(--g2);color:var(--g);font-weight:600}
+.pill.warn{background:#fef3c7;color:var(--warn)}.pill.bad{background:#fee2e2;color:var(--bad)}
+table{width:100%;border-collapse:collapse;font-size:12px}td,th{padding:4px 5px;border-bottom:1px solid #eee;text-align:left}
+th{color:var(--mut);font-weight:600}.wide{grid-column:1/-1}.two{grid-column:span 2}
+.thumbs{display:flex;gap:10px}.thumbs figure{margin:0;flex:1}.thumbs img{width:100%;border-radius:8px}
+figcaption{font-size:11px;color:var(--mut);text-align:center}
+.alert{padding:7px 9px;border-radius:8px;margin:5px 0;font-size:13px;background:#fff7ed;border-left:4px solid var(--warn)}
+.alert.high{background:#fef2f2;border-color:var(--bad)}
+#status{font-size:13px;color:var(--mut);margin-top:8px;min-height:18px}
+.bar{height:10px;border-radius:5px;background:#eee;overflow:hidden;display:flex}
+.disc{font-size:11px;color:var(--mut);margin-top:6px}
+.searchbar{background:#fff;margin:14px 14px 0;border-radius:12px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.sb-row{display:flex;gap:10px;align-items:flex-end}.sb-row .q{flex:1}.sb-row .q input{font-size:18px;padding:11px 12px;border:2px solid var(--g)}
+.sb-row .r{width:110px}.sb-row button{width:auto;padding:12px 26px;font-size:17px}
+.presets{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.chip{background:var(--g2);color:var(--g);border:1px solid #b7dfc3;border-radius:99px;padding:6px 12px;font-size:13px;cursor:pointer;width:auto}
+.chip:hover{background:#d4eedc}
+.live{display:grid;grid-template-columns:1fr 1fr;gap:12px}.live figure{margin:0}.live img{width:100%;border-radius:10px;display:block}
+.cap{font-size:12px;margin-top:5px;line-height:1.45}.cap b{color:#14532d}
+.badge{display:inline-block;background:#dc2626;color:#fff;font-size:11px;font-weight:700;padding:2px 7px;border-radius:4px;margin-left:6px;letter-spacing:.05em}
+.strip{display:flex;gap:8px;overflow-x:auto;margin-top:12px;padding-bottom:4px}.strip figure{margin:0;min-width:120px;flex:1}
+.strip img{width:100%;border-radius:6px;display:block}.strip figcaption{font-size:11px}
+a{color:#1b6fb8}
+.tabs{margin-left:auto;display:flex;gap:6px}.tabs a{color:#fff;padding:7px 14px;border-radius:8px;cursor:pointer;background:rgba(255,255,255,.12);font-size:14px}
+.tabs a.on{background:#fff;color:#14532d;font-weight:700}
+#marketView{display:none;padding:0 14px 14px}
+.mform{display:grid;grid-template-columns:1.2fr 1fr .6fr 1.2fr auto;gap:10px;align-items:end}
+select{width:100%;padding:9px;border:1px solid #ccd;border-radius:6px;font-size:14px;background:#fff}
+.mgrid{display:grid;grid-template-columns:1.1fr 1fr;gap:14px;margin-top:14px}
+#mmap{height:430px;border-radius:10px}
+.hero{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+.hero .card .big{font-size:22px}
+.status-live{background:#dcfce7;color:#166534}.status-cached{background:#e0f2fe;color:#075985}.status-fallback{background:#fef3c7;color:#92400e}.status-unavailable{background:#fee2e2;color:#991b1b}
+.mt td,.mt th{font-size:12.5px;padding:5px 6px;text-align:right}.mt td:nth-child(2),.mt th:nth-child(2){text-align:left}
+.mt tr.best{background:#ecfdf5;font-weight:600}.mt tr.near{background:#eff6ff}
+.num{display:inline-block;width:20px;height:20px;border-radius:50%;background:#1b7f3b;color:#fff;text-align:center;font-size:11px;line-height:20px;font-weight:700}
+.mk-icon{background:#1b7f3b;color:#fff;border:2px solid #fff;border-radius:50%;text-align:center;font-weight:700;font-size:12px;line-height:22px;box-shadow:0 1px 4px rgba(0,0,0,.4)}
+.mk-icon.near{background:#2563eb}.mk-icon.farm{background:#dc2626}
+@media(max-width:900px){.wrap{grid-template-columns:1fr}.two{grid-column:auto}}
+</style></head><body>
+<header><h1>🌾 MandiMitra</h1><span>Field analysis + where-to-sell · free & keyless prototype</span>
+<nav class="tabs"><a id="tabField" class="on" onclick="showTab('field')">🛰 Field analysis</a><a id="tabMarket" onclick="showTab('market')">💰 Where to sell</a></nav></header>
+<div class="searchbar">
+ <div class="sb-row">
+  <div class="q"><label>Field location: type <b>lat, lon</b> (e.g. 12.50, 76.85) or paste a Google Maps link</label>
+   <input id="q" value="12.50, 76.85" onkeydown="if(event.key==='Enter')run()"></div>
+  <div class="r"><label>Radius (m)</label><input id="rad" value="100"></div>
+  <button id="go" onclick="run()">🛰 Analyze</button>
+ </div>
+ <div class="presets"><span class="mut">Demo farms:</span>
+  <button class="chip" onclick="preset(12.50,76.85)">Mandya · 12.50, 76.85</button>
+  <button class="chip" onclick="preset(13.30,77.05)">Tumakuru · 13.30, 77.05</button>
+  <button class="chip" onclick="preset(14.42,75.95)">Davanagere · 14.42, 75.95</button>
+  <button class="chip" onclick="preset(16.18,77.30)">Raichur · 16.18, 77.30</button>
+  <span class="mut" style="margin-left:auto">or click anywhere on the map</span></div>
+ <div id="status">Enter a location and press Analyze.</div>
+</div>
+<input type="hidden" id="lat" value="12.50"><input type="hidden" id="lon" value="76.85">
+<div class="wrap">
+ <div>
+  <div class="panel">
+   <div id="map"></div>
+   <div class="mut" id="coordtxt" style="margin-top:8px"></div>
+  </div>
+ </div>
+ <div class="grid" id="out"></div>
+</div>
+<div id="marketView">
+ <div class="card">
+  <h3>Where to sell · best net price for your crop</h3>
+  <div class="mform">
+   <div><label>Commodity (Karnataka APMC)</label><select id="mcom"></select></div>
+   <div><label>Variety (as reported)</label><select id="mvar"><option value="all">All varieties (median per mandi)</option></select></div>
+   <div><label>Quantity (quintals)</label><input id="mqty" value="20" type="number" min="1"></div>
+   <div><label>Vehicle</label><select id="mveh"></select></div>
+   <button id="mgo" onclick="runMarket()" style="padding:10px 22px">💰 Find best mandi</button>
+  </div>
+  <div class="mut" id="mloc" style="margin-top:6px"></div>
+  <div id="mstatus" class="mut" style="margin-top:4px"></div>
+ </div>
+ <div id="mout"></div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const map=L.map('map').setView([12.50,76.85],14);
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Esri World Imagery'}).addTo(map);
+let marker=null,circle=null,chart=null;
+function place(){const la=+$('lat').value,lo=+$('lon').value,r=+$('rad').value;$('coordtxt')&&($('coordtxt').textContent=`Pin: ${la.toFixed(5)}, ${lo.toFixed(5)} · buffer ${r} m (${(Math.PI*r*r/1e4).toFixed(2)} ha)`);
+ if(marker){map.removeLayer(marker);map.removeLayer(circle)}
+ marker=L.marker([la,lo]).addTo(map);circle=L.circle([la,lo],{radius:r,color:'#facc15',weight:2,fillOpacity:.1}).addTo(map);}
+map.on('click',e=>{setLL(e.latlng.lat,e.latlng.lng);});
+function setLL(la,lo){$('lat').value=(+la).toFixed(5);$('lon').value=(+lo).toFixed(5);$('q').value=`${(+la).toFixed(5)}, ${(+lo).toFixed(5)}`;place();map.setView([+la,+lo],Math.max(map.getZoom(),15));}
+function preset(la,lo){setLL(la,lo);run();}
+function localParse(t){const P=[/@(-?\d+\.\d+),(-?\d+\.\d+)/,/!3d(-?\d+\.\d+)!4d(-?\d+\.\d+)/,/[?&](?:q|ll|query|destination|center)=(-?\d+\.\d+)(?:,|%2C)\s*(-?\d+\.\d+)/,/^\s*(-?\d{1,2}(?:\.\d+)?)\s*[, ]\s*(-?\d{1,3}(?:\.\d+)?)\s*$/];
+ for(const p of P){const m=t.match(p);if(m)return[+m[1],+m[2]]}return null}
+async function resolveQ(){const t=$('q').value.trim();let c=localParse(t);
+ if(!c){const r=await fetch('/resolve?q='+encodeURIComponent(t));if(!r.ok)throw new Error((await r.json()).detail||'Could not read location');const j=await r.json();c=[j.lat,j.lon]}
+ if(Math.abs(c[0])>90||Math.abs(c[1])>180)throw new Error('Coordinates out of range');
+ $('lat').value=c[0];$('lon').value=c[1];return c}
+place();
+const f=(v,d=2)=>v==null||isNaN(v)?'–':(+v).toFixed(d);
+function ndviPill(v){if(v==null)return'<span class="pill warn">no data</span>';
+ if(v<0.2)return'<span class="pill bad">bare / stressed</span>';if(v<0.4)return'<span class="pill warn">low</span>';
+ if(v<0.6)return'<span class="pill">moderate</span>';return'<span class="pill">healthy</span>'}
+async function run(){
+ $('go').disabled=true;
+ try{await resolveQ()}catch(e){$('status').textContent='⚠ '+e.message;$('go').disabled=false;return}
+ place();map.setView([+$('lat').value,+$('lon').value],15);const la=$('lat').value,lo=$('lon').value,r=$('rad').value;$('status').textContent=`Searching live Sentinel-2 archive for ${la}, ${lo} and fetching weather… (~10-30 s)`;
+ const t=Date.now();
+ try{const res=await fetch(`/analyze?lat=${la}&lon=${lo}&radius=${r}`);
+  if(!res.ok)throw new Error(await res.text());
+  const d=await res.json();window.LAST=d;render(d);
+  const sc=(d.thumbnails||{}).scene||{};$('status').innerHTML=`✅ Done in ${((Date.now()-t)/1000).toFixed(1)} s${d.cached?` (cached ${Math.round(d.cache_age_s/60)} min ago; satellite search ran in ${d.elapsed_s} s)`:''} · latest clear Sentinel-2 image over ${(+la).toFixed(4)}, ${(+lo).toFixed(4)}: <b>${sc.datetime_ist||'–'}</b> (${sc.days_ago??'–'} days ago, ${sc.satellite_short||''})`;
+ }catch(e){$('status').textContent='Error: '+e.message}
+ $('go').disabled=false;}
+function render(d){
+ const L0=d.crop_health.latest_scene||{},I=L0.indices||{},ce=d.crop_estimate||{},w=d.weather||{},c=w.current||{},s=w.soil||{},ir=d.irrigation,lc=d.landcover||{},cl=d.climate_30d||{},rv=d.revisit||{};
+ const th=d.thumbnails;
+ const sm=(th&&th.scene)||{};
+ const cap=(kind)=>`<div class="cap"><b>${kind}</b> · ${sm.datetime_ist||''} · <b>${sm.satellite||''}</b> · ${sm.days_ago} day${sm.days_ago==1?'':'s'} ago<br>Tile cloud ${sm.tile_cloud_pct}% · field ${Math.round((sm.field_clear_fraction||0)*100)}% clear · tile ${sm.tile||''}<br><span class="mut" style="word-break:break-all">Scene ${sm.item_id||''}</span></div>`;
+ const gal=(d.recent_clear_scenes||[]).map(g=>`<figure>${g.true_color?`<a href="${g.scene_preview_url}" target="_blank"><img src="${g.true_color}"></a>`:'<div class="mut">'+(g.error||'')+'</div>'}<figcaption><b>${g.date.slice(8)} ${['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+g.date.slice(5,7)-1]}</b> · ${g.satellite_short} · ${g.days_ago}d ago<br>${g.tile_cloud_pct}% tile cloud</figcaption></figure>`).join('');
+ const liveCard=`<div class="card wide"><h3>Live satellite view of this field <span class="badge">LIVE</span></h3>`+
+  (th&&!th.error?`<div class="live"><figure><img src="${th.true_color}" alt="true colour">${cap('True colour RGB (B4·B3·B2)')}</figure><figure><img src="${th.ndvi}" alt="NDVI">${cap('NDVI crop-health map')}</figure></div>
+  <div class="disc">Fetched just now from the Sentinel-2 L2A archive (ESA Copernicus, via Microsoft Planetary Computer). 10 m pixels, contrast-stretched; white circle = your ${d.field.radius_m} m field, red dot = pin, window ±${th.context_radius_m} m.
+  Source: <a href="${sm.stac_item_url}" target="_blank">STAC item (JSON)</a> · <a href="${sm.scene_preview_url}" target="_blank">full-scene preview</a> · <a href="${sm.explorer_url}" target="_blank">open in Planetary Computer Explorer</a></div>
+  <h3 style="margin-top:14px">Last ${(d.recent_clear_scenes||[]).length} cloud-free passes</h3><div class="strip">${gal}</div>
+  <div class="disc">Each thumbnail is a separate real acquisition (click for the full scene). Changes between dates show the crop growing or being harvested.</div>`
+  :'<div class="mut">No cloud-free image found ('+(th&&th.error||'cloudy period')+')</div>')+`</div>`;
+ const zones=L0.ndvi_zones||{};const zc=['#dc2626','#f59e0b','#a3e635','#16a34a'];
+ const zbar=Object.values(zones).map((v,i)=>`<div style="width:${v*100}%;background:${zc[i]}"></div>`).join('');
+ const idxRow=(k,n)=>`<span>${k} <span class="mut">${n}</span></span><b>${f(I[k]&&I[k].mean)} <span class="mut">(${f(I[k]&&I[k].p10)}–${f(I[k]&&I[k].p90)})</span></b>`;
+ const alerts=(d.alerts||[]);
+ const sg=(d.soil_properties||{}).properties;
+ const sgRow=(k,lab)=>sg&&sg[k]?`<span>${lab}</span><b>${sg[k]['0-5cm']??'–'} ${sg[k].unit}</b>`:'';
+ const fc=(w.daily||[]).filter(x=>!x.past);
+ const nxt=(rv.sentinel2||{}).estimated_next||[];
+ $('out').innerHTML=liveCard+`
+ <div class="card"><h3>Crop health now</h3>
+  <div class="big">NDVI ${f(I.NDVI&&I.NDVI.mean)} ${ndviPill(I.NDVI&&I.NDVI.mean)}</div>
+  <div style="margin:6px 0">${d.crop_health.summary}</div>
+  <div class="bar">${zbar}</div><div class="mut" style="margin-top:3px">${Object.entries(zones).map(([k,v])=>`${k}: ${(v*100).toFixed(0)}%`).join(' · ')}</div>
+  <div class="disc">Scene ${L0.date} (${L0.days_ago} d ago) · ${Math.round((L0.field_clear_fraction||0)*100)}% of field cloud-free · ${d.field.area_ha} ha · ${d.field.pixels_10m} px</div></div>
+ <div class="card"><h3>Vegetation indices</h3><div class="kv">
+  ${idxRow('NDVI','vigour')}${idxRow('NDRE','chlorophyll / N')}${idxRow('NDMI','canopy water')}${idxRow('NDWI','surface water')}</div>
+  <div class="disc">Field mean (10th–90th percentile), clear pixels only, Sentinel-2 L2A.</div></div>
+ <div class="card"><h3>Crop / land-use estimate</h3>
+  <div class="big" style="font-size:20px">${ce.label||'–'}</div>
+  <div><span class="pill ${ce.confidence_level=='low'?'warn':''}">${ce.confidence_level||''} confidence · ${f(ce.confidence)}</span></div>
+  <div style="font-size:13px;margin:6px 0">${ce.reasoning||''}</div>
+  ${ce.candidates?`<div style="font-size:13px"><b>Likely crops:</b> ${ce.candidates}</div>`:''}
+  <div class="disc">⚠ Heuristic estimate from the NDVI season pattern, not a trained classifier. Needs ground-truth data to be reliable.</div></div>
+ <div class="card two"><h3>NDVI time series (12 months)</h3><canvas id="ch" height="110"></canvas>
+  <div class="disc">Line = monthly median of clear scenes; dots = individual cloud-free scenes. Gaps = monsoon cloud cover.</div></div>
+ <div class="card"><h3>Land cover (ESA WorldCover)</h3><div class="big" style="font-size:20px">${lc.point_class||'–'}</div>
+  <div class="kv" style="margin-top:6px">${Object.entries(lc.buffer_distribution||{}).map(([k,v])=>`<span>${k}</span><b>${(v*100).toFixed(0)}%</b>`).join('')}</div>
+  <div class="disc">${lc.note||lc.error||''} · share of field buffer</div></div>
+ <div class="card"><h3>Weather now</h3><div class="big">${f(c.temperature_2m,1)}°C <span style="font-size:15px;font-weight:400">${c.weather||''}</span></div>
+  <div class="kv"><span>Humidity</span><b>${c.relative_humidity_2m??'–'}%</b><span>Feels like</span><b>${f(c.apparent_temperature,1)}°C</b>
+  <span>Rain (now)</span><b>${c.rain??'–'} mm</b><span>Wind</span><b>${c.wind_speed_10m??'–'} km/h</b><span>Cloud</span><b>${c.cloud_cover??'–'}%</b></div>
+  <div class="disc">Open-Meteo · ${c.time||''} local</div></div>
+ <div class="card"><h3>Soil</h3><div class="kv">
+  <span>Moisture 0–7 cm</span><b>${f(s.moisture_0_7cm_m3m3,3)} m³/m³</b><span>Moisture 7–28 cm</span><b>${f(s.moisture_7_28cm_m3m3,3)} m³/m³</b>
+  <span>Soil temp 0–7 cm</span><b>${f(s.temperature_0_7cm_c,1)}°C</b><span>Soil temp 7–28 cm</span><b>${f(s.temperature_7_28cm_c,1)}°C</b>
+  ${sgRow('phh2o','pH (0–5 cm)')}${sgRow('soc','Organic carbon')}${sgRow('nitrogen','Total N')}${sgRow('clay','Clay')}${sgRow('sand','Sand')}</div>
+  <div class="disc">Moisture/temperature: model estimate (~10 km). ${sg?'Texture/chemistry: SoilGrids 250 m model.':'SoilGrids unavailable right now (service slow) – use Soil Health Card values.'}</div></div>
+ <div class="card"><h3>Irrigation advice</h3>${ir?`
+  <div><span class="pill ${ir.action=='IRRIGATE'?'bad':ir.action=='WAIT'||ir.action=='N/A'?'warn':''}" style="font-size:14px">${ir.action}</span></div>
+  <div style="margin:6px 0;font-size:14px">${ir.advice}</div>
+  <div class="kv"><span>Kc (from NDVI)</span><b>${ir.kc}</b><span>Last 7 d ETc / eff. rain</span><b>${ir.last7.etc_mm} / ${ir.last7.effective_rain_mm} mm</b>
+  <span>Next 3 d ETc / rain</span><b>${ir.next3.etc_mm} / ${ir.next3.rain_mm} mm</b><span>Root-zone depletion</span><b>${f(ir.root_zone_depletion*100,0)}%</b></div>
+  <div class="disc">FAO-56: ETc = Kc × ET0 − effective rain. ${ir.assumptions}</div>`:'<div class="mut">Weather unavailable</div>'}</div>
+ <div class="card"><h3>Alerts (next 7 days)</h3>${alerts.length?alerts.map(a=>`<div class="alert ${a.level}"><b>${a.date} · ${a.type}</b><br>${a.msg}</div>`).join(''):'<div class="pill">✓ No heat, heavy-rain, frost, wind or fungal alerts</div>'}</div>
+ <div class="card two"><h3>7-day forecast</h3><table><tr><th>Date</th><th>Sky</th><th>Max/Min °C</th><th>Rain mm (prob)</th><th>RH %</th><th>ET0 mm</th><th>Wind</th></tr>
+  ${fc.map(x=>`<tr><td>${x.date.slice(5)}</td><td>${x.weather}</td><td>${f(x.tmax,0)} / ${f(x.tmin,0)}</td><td>${x.rain_mm} (${x.rain_prob??'–'}%)</td><td>${x.rh_min}–${x.rh_max}</td><td>${x.et0_mm}</td><td>${x.wind_max_kmh}</td></tr>`).join('')}</table></div>
+ <div class="card"><h3>Last 30 days (NASA POWER)</h3>${cl.error?`<div class="mut">${cl.error}</div>`:`<div class="kv">
+  <span>Total rain</span><b>${cl.total_rain_mm} mm</b><span>Rainy days (&gt;2.5 mm)</span><b>${cl.rainy_days_gt2_5mm}</b>
+  <span>Mean max / min</span><b>${cl.mean_tmax_c} / ${cl.mean_tmin_c}°C</b><span>Extremes</span><b>${f(cl.abs_max_c,1)} / ${f(cl.abs_min_c,1)}°C</b>
+  <span>Mean humidity</span><b>${cl.mean_rh_pct}%</b><span>Growing degree days (base 10)</span><b>${cl.growing_degree_days_base10}</b></div><div class="disc">${cl.period}</div>`}</div>
+ <div class="card two"><h3>Satellite passes over this field</h3>
+  <table><tr><th>Mission</th><th>Resolution</th><th>Revisit</th><th>Last passes (actual)</th><th>Next (est.)</th></tr>
+  <tr><td>Sentinel-2</td><td>10 m optical</td><td>5 d per orbit · observed ${(rv.sentinel2||{}).observed_median_gap_days??'–'} d</td><td>${((rv.sentinel2||{}).last_acquisitions||[]).slice(0,4).map(a=>`${a.date.slice(5)} <span class="mut">(${Math.round(a.tile_cloud_pct)}%☁)</span>`).join(', ')}</td><td>${nxt.slice(0,2).map(x=>x.date.slice(5)).join(', ')}</td></tr>
+  <tr><td>Landsat 8/9</td><td>30 m</td><td>8 d combined</td><td>${Array.isArray((rv.landsat||{}).last_acquisitions)?rv.landsat.last_acquisitions.slice(0,3).map(a=>a.date.slice(5)).join(', '):'–'}</td><td>${((rv.landsat||{}).estimated_next||'–').slice(5)}</td></tr>
+  <tr><td>Sentinel-1 SAR</td><td>10 m radar</td><td>12 d</td><td>${Array.isArray((rv.sentinel1||{}).last_acquisitions)?rv.sentinel1.last_acquisitions.slice(0,3).map(a=>a.date.slice(5)).join(', '):'–'}</td><td>${((rv.sentinel1||{}).estimated_next||'–').slice(5)}</td></tr>
+  <tr><td>LISS-IV (ISRO)</td><td>5.8 m</td><td>5 d steerable / 24 d nadir</td><td colspan=2 class="mut">Not in open STAC – order via Bhuvan / NRSC</td></tr></table>
+  <div class="disc">Actual dates from Planetary Computer STAC; next pass = last pass per orbit + repeat cycle.</div></div>`;
+ const m=d.ndvi_timeseries.monthly_median,sc=d.ndvi_timeseries.scenes;
+ if(chart)chart.destroy();
+ const m0=m[0].month,y0=+m0.slice(0,4),mo0=+m0.slice(5,7);
+ const X=ds=>{const y=+ds.slice(0,4),mo=+ds.slice(5,7),dd=+ds.slice(8,10);return (y-y0)*12+(mo-mo0)+(dd-1)/30.5};
+ const MN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+ chart=new Chart($('ch'),{data:{datasets:[
+  {type:'line',label:'Monthly median NDVI',data:m.map(x=>({x:X(x.month+'-15'),y:x.ndvi})),borderColor:'#1b7f3b',backgroundColor:'#1b7f3b',spanGaps:true,tension:.3,pointRadius:4},
+  {type:'scatter',label:'Clear scenes',data:sc.map(x=>({x:X(x.date),y:x.ndvi})),backgroundColor:'rgba(250,160,20,.7)',pointRadius:3}]},
+  options:{animation:false,scales:{x:{type:'linear',min:0,max:m.length,ticks:{stepSize:1,callback:v=>{const k=mo0-1+v;return MN[((k%12)+12)%12]+(k%12==0||v==0?" '"+String(y0+Math.floor(k/12)).slice(2):'')}}},
+  y:{min:0,max:1,title:{display:true,text:'NDVI'}}},plugins:{legend:{position:'bottom'}}}});
+}
+const Q=new URLSearchParams(location.search);
+if(Q.get('rad'))$('rad').value=Q.get('rad');
+if(Q.get('q'))$('q').value=Q.get('q');
+if(Q.get('lat'))setLL(Q.get('lat'),Q.get('lon'));
+if(Q.has('auto')&&Q.get('tab')!=='market')run();
+// ---------------- Where to sell
+let mmap=null,mlayers=[],mchart=null;
+const inr=v=>v==null?'–':'₹'+Math.round(v).toLocaleString('en-IN');
+function showTab(t){$('tabField').classList.toggle('on',t=='field');$('tabMarket').classList.toggle('on',t=='market');
+ document.querySelector('.wrap').style.display=t=='field'?'grid':'none';$('marketView').style.display=t=='market'?'block':'none';
+ $('mloc').textContent=`Farm location (from the field box above): ${(+$('lat').value).toFixed(4)}, ${(+$('lon').value).toFixed(4)}. Change it above, or pick a demo farm.`;
+}
+fetch('/commodities').then(r=>r.json()).then(j=>{
+ $('mcom').innerHTML=j.commodities.map(c=>`<option value="${c.key}">${c.label}${c.class=='perishable'?' 🥬':''}</option>`).join('');
+ $('mveh').innerHTML=j.vehicles.map(v=>`<option value="${v.key}">${v.label} · ₹${v.rate_per_km}/km</option>`).join('');
+ $('mcom').onchange=()=>{$('mvar').innerHTML='<option value="all">All varieties (median per mandi)</option>'};
+ $('mcom').value=Q.get('commodity')||'tomato';$('mveh').value=Q.get('vehicle')||'tractor';if(Q.get('qty'))$('mqty').value=Q.get('qty');
+ if(Q.get('tab')==='market'){showTab('market');if(Q.has('auto'))runMarket();}
+});
+async function runMarket(){
+ try{await resolveQ()}catch(e){$('mstatus').textContent='⚠ '+e.message;return}
+ const la=+$('lat').value,lo=+$('lon').value;showTab('market');
+ $('mgo').disabled=true;$('mstatus').textContent='Fetching today\'s Agmarknet prices, geocoding mandis and road distances…';const t=Date.now();
+ try{const r=await fetch(`/market?lat=${la}&lon=${lo}&commodity=${$('mcom').value}&qty=${$('mqty').value}&vehicle=${$('mveh').value}&variety=${encodeURIComponent($('mvar').value)}`);
+  if(!r.ok)throw new Error(await r.text());const d=await r.json();window.MLAST=d;renderMarket(d);
+  $('mstatus').textContent=`✅ Done in ${((Date.now()-t)/1000).toFixed(1)} s`;
+ }catch(e){$('mstatus').textContent='Error: '+e.message}
+ $('mgo').disabled=false;}
+function renderMarket(d){
+ const pi=d.price_info||{},b=d.best,n=d.nearest,tr=d.trend||{},h=tr.hint||{},A=d.assumptions||{};
+ const st=pi.status||'unavailable';
+ const cur=d.variety_selected||'all';$('mvar').innerHTML='<option value="all">All varieties (median per mandi)</option>'+(d.varieties||[]).map(v=>`<option value="${v.variety}">${v.variety} · ${v.markets} mandi${v.markets>1?'s':''}</option>`).join('');$('mvar').value=cur;
+ const stLabel={live:'LIVE DATA',cached:'CACHED (today)',fallback:'FALLBACK SNAPSHOT – not today',unavailable:'NO DATA'}[st];
+ if(!d.mandis||!d.mandis.length){$('mout').innerHTML=`<div class="card" style="margin-top:14px">${d.error||'No mandis found'}<br><span class="mut">${(pi.attempts||[]).join(' · ')}</span></div>`;return}
+ $('mout').innerHTML=`
+ <div class="card" style="margin-top:14px;display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+  <span class="pill status-${st}" style="font-size:13px">● ${stLabel}</span>
+  <span><b>Price date: ${pi.data_date}</b> · ${pi.markets_reporting} Karnataka mandis reported ${d.commodity} · ${pi.unit}</span>
+  <span class="mut" style="flex-basis:100%">Source: ${pi.source||'–'}${pi.fetched_at?' · fetched '+pi.fetched_at:''}${pi.note?' · '+pi.note:''}</span></div>
+ <div class="hero">
+  <div class="card"><h3>Best mandi</h3><div class="big">${b.market.replace(' APMC','')}</div><div class="mut">${b.district} · ${b.road_km} km</div></div>
+  <div class="card"><h3>Net price there</h3><div class="big">${inr(b.net_per_q)}/q</div><div class="mut">modal ${inr(b.modal)} − costs</div></div>
+  <div class="card"><h3>You take home</h3><div class="big">${inr(b.net_total)}</div><div class="mut">for ${d.quantity_q} q via ${d.vehicle.label}</div></div>
+  <div class="card"><h3>Extra vs nearest mandi</h3><div class="big" style="color:${d.extra_gain_best_vs_nearest>0?'#15803d':'#334'}">+${inr(d.extra_gain_best_vs_nearest)}</div><div class="mut">nearest: ${n.market.replace(' APMC','')} (${n.road_km} km) → ${inr(n.net_total)}</div></div>
+ </div>
+ <div class="mgrid">
+  <div class="card"><h3>Mandis & road routes</h3><div id="mmap"></div><div class="disc">🔴 farm · 🟢 ranked mandis (number = rank by net price) · 🔵 nearest mandi. Roads: ${A.distance_source}. Mandi pins are town-level geocodes (OpenStreetMap Nominatim).</div></div>
+  <div class="card"><h3>Sell now or wait? <span class="pill warn">rule-based hint</span></h3>
+   <div class="big" style="font-size:20px">${h.action||'–'}</div><div style="font-size:13px;margin:6px 0">${h.why||''}</div>
+   <div class="kv"><span>Karnataka avg modal today (all varieties)</span><b>${inr(d.state_avg_modal)}/q</b>
+   <span>7-day change</span><b>${tr.change_7d_pct==null?'n/a (no data a week ago)':(tr.change_7d_pct>0?'+':'')+tr.change_7d_pct+'%'}</b>
+   <span>30-day change</span><b>${tr.change_30d_pct==null?'n/a':(tr.change_30d_pct>0?'+':'')+tr.change_30d_pct+'%'}</b>
+   <span>Recent 30-day average</span><b>${inr(tr.mean_30d)}</b></div>
+   <canvas id="mch" height="150" style="margin-top:8px"></canvas>
+   <div class="disc">State-average modal price. History: ${(tr.sources||[]).join(' + ')||'none'}; last history point ${tr.history_last_date||'–'}. Rules: perishables → sell within 1–2 days unless prices are crashing; storable crops → wait if >8% below the 30-day average, sell if >8% above.</div></div>
+ </div>
+ <div class="card" style="margin-top:14px"><h3>Ranked mandis for ${d.quantity_q} q of ${d.commodity}</h3>
+  <table class="mt"><tr><th>#</th><th>Mandi (district)</th><th style="text-align:left">Varieties reported (modal)</th><th>Modal used</th><th>Min–Max</th><th>Road km / time</th><th>Transport /q</th><th>Fees+comm+hamali /q</th><th>Spoilage /q</th><th>Net /q</th><th>Total for ${d.quantity_q} q</th><th>vs nearest</th></tr>
+  ${d.mandis.map(m=>`<tr class="${m.rank==1?'best':m.is_nearest?'near':''}"><td><span class="num" style="background:${m.is_nearest?'#2563eb':'#1b7f3b'}">${m.rank}</span></td>
+   <td>${m.market} <span class="mut">(${m.district})</span>${m.is_nearest?' <span class="pill" style="background:#dbeafe;color:#1d4ed8">nearest</span>':''}</td>
+   <td style="text-align:left;font-size:11.5px">${(m.variety_prices||[]).map(v=>`${v.variety} <span class="mut">${v.grade}</span> ${inr(v.modal)}`).join('<br>')}</td><td>${inr(m.modal)}</td><td>${inr(m.min)}–${inr(m.max)}</td><td>${m.road_km} km · ${Math.floor(m.drive_min/60)}h${String(m.drive_min%60).padStart(2,'0')}</td>
+   <td>${inr(m.transport_per_q)}</td><td>${inr(m.charges_per_q)}</td><td>${m.spoilage_pct?inr(m.spoilage_per_q)+' ('+m.spoilage_pct+'%)':'–'}</td>
+   <td><b>${inr(m.net_per_q)}</b></td><td>${inr(m.net_total)}</td><td style="color:${m.gain_vs_nearest_total>0?'#15803d':m.gain_vs_nearest_total<0?'#b91c1c':'#666'}">${m.gain_vs_nearest_total>0?'+':''}${inr(m.gain_vs_nearest_total)}</td></tr>`).join('')}
+  </table>
+  <div class="disc">⚠ Prices vary a lot by variety and grade (for example fine Sona Masuri vs coarse paddy). Pick your variety above for a like-for-like comparison; "All" uses the median across varieties at each mandi.<br>Net/q = modal × (1 − spoilage%) − modal × (APMC fee ${A.market_fee_pct}% + commission ${A.commission_pct}%) − hamali ₹${A.hamali_per_q} − transport (${d.vehicle.label}: ₹${d.vehicle.fixed} + ₹${d.vehicle.rate_per_km}/km per trip, ${d.vehicle.capacity_q} q per trip).
+  Ranked ${d.all_mandis_count} reachable mandis${d.not_located&&d.not_located.length?'; not located: '+d.not_located.join(', '):''}. ${A.note}</div></div>`;
+ // map
+ if(mmap){mmap.remove();}
+ mmap=L.map('mmap');L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'© OpenStreetMap'}).addTo(mmap);
+ const ic=(t,c)=>L.divIcon({className:'',html:`<div class="mk-icon ${c}" style="width:24px;height:24px">${t}</div>`,iconSize:[24,24],iconAnchor:[12,12]});
+ const pts=[[d.farm.lat,d.farm.lon]];
+ L.marker([d.farm.lat,d.farm.lon],{icon:ic('F','farm'),zIndexOffset:1000}).addTo(mmap).bindPopup('Your farm');
+ [...d.mandis].reverse().forEach(m=>{
+  if(m.route)L.polyline(m.route,{color:m.rank==1?'#16a34a':m.is_nearest?'#2563eb':'#94a3b8',weight:m.rank==1?5:m.is_nearest?4:2,opacity:m.rank==1||m.is_nearest?0.9:0.6}).addTo(mmap);
+  L.marker([m.lat,m.lon],{icon:ic(m.rank,m.is_nearest?'near':'')}).addTo(mmap).bindPopup(`<b>#${m.rank} ${m.market}</b><br>Modal ${inr(m.modal)}/q · ${m.road_km} km<br>Net ${inr(m.net_per_q)}/q · total ${inr(m.net_total)}`);
+  pts.push([m.lat,m.lon]);});
+ mmap.fitBounds(pts,{padding:[25,25]});
+ // trend chart
+ const tp=(tr.points||[]).slice(-60);if(mchart)mchart.destroy();
+ mchart=new Chart($('mch'),{type:'line',data:{labels:tp.map(p=>p.date.slice(5)),datasets:[{label:'Karnataka avg modal ₹/q',data:tp.map(p=>p.modal),borderColor:'#b45309',backgroundColor:'#b45309',pointRadius:2,tension:.25}]},
+  options:{animation:false,plugins:{legend:{display:false}},scales:{x:{ticks:{maxTicksLimit:8}},y:{title:{display:true,text:'₹/quintal'}}}}});
+}
+</script></body></html>

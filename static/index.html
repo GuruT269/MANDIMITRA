@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MandiMitra · Satellite-verified farm intelligence</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌾</text></svg>">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="/static/app.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head><body>
+<header>
+ <div class="brand"><div class="logo">🌾</div><div><h1>MandiMitra</h1><small data-i="tagline">Satellite-verified farm intelligence · free for every farmer</small></div></div>
+ <nav class="tabs">
+  <a id="t-field" class="on" onclick="tab('field')" data-i="tabField">🛰 Field</a>
+  <a id="t-market" onclick="tab('market')" data-i="tabMarket">💰 Where to Sell</a>
+  <a id="t-passport" onclick="tab('passport')" data-i="tabPassport">🛡 Quality Passport</a>
+  <a id="t-advisor" onclick="tab('advisor')" data-i="tabAdvisor">🤖 Advisor</a>
+ </nav>
+ <div class="lang"><button id="l-en" class="on" onclick="setLang('en')">EN</button><button id="l-kn" onclick="setLang('kn')">ಕನ್ನಡ</button></div>
+</header>
+<main>
+ <div class="bar">
+  <div class="sb">
+   <div class="qbox"><label data-i="locLabel">Farm location: lat, lon or Google Maps link</label><input id="q" value="12.50, 76.85" onkeydown="if(event.key==='Enter')go()"></div>
+   <div><label data-i="radius">Radius (m)</label><input id="rad" value="100" type="number" min="20" max="1000"></div>
+   <div><label data-i="crop">Crop</label><select id="crop">
+    <option value="auto">Auto (from satellite)</option><option value="paddy">Paddy</option><option value="ragi">Ragi</option><option value="maize">Maize</option>
+    <option value="tomato">Tomato</option><option value="onion">Onion</option><option value="potato">Potato</option><option value="sugarcane">Sugarcane</option>
+    <option value="cotton">Cotton</option><option value="groundnut">Groundnut</option><option value="tur">Tur</option><option value="arecanut">Arecanut</option><option value="coconut">Coconut</option><option value="banana">Banana</option></select></div>
+   <button class="btn" id="go" onclick="go()" data-i="analyze">🛰 Analyze</button>
+  </div>
+  <div class="chips"><span class="mut" data-i="demoFarms">Demo farms:</span>
+   <button class="chip" onclick="preset(12.50,76.85)">Mandya</button><button class="chip" onclick="preset(13.30,77.05)">Tumakuru</button>
+   <button class="chip" onclick="preset(14.42,75.95)">Davanagere</button><button class="chip" onclick="preset(16.18,77.30)">Raichur</button>
+   <span class="mut" style="margin-left:auto" data-i="clickMap">or click the map</span></div>
+  <div id="status"></div>
+ </div>
+ <div class="why">
+  <div><i>💯</i><b data-i="w1">Farm Health Score</b><span data-i="w1d">One 0–100 number from satellite, soil moisture and weather risk, explained.</span></div>
+  <div><i>🛡</i><b data-i="w2">Quality Passport + QR</b><span data-i="w2d">Buyers see satellite proof and the input log before they buy.</span></div>
+  <div><i>💰</i><b data-i="w3">Net-price mandi ranking</b><span data-i="w3d">Ranked by money in hand after transport, fees and spoilage.</span></div>
+  <div><i>🗣</i><b data-i="w4">Kannada voice advisor</b><span data-i="w4d">Daily action card: irrigate, spray window, pest risk, organic inputs.</span></div>
+  <div><i>🆓</i><b data-i="w5">Free & open data</b><span data-i="w5d">Sentinel-2, Open-Meteo, Agmarknet, OSM. No subscription.</span></div>
+ </div>
+
+ <!-- FIELD -->
+ <section id="v-field">
+  <div class="grid">
+   <div class="card c4" id="c-score"><h3 data-i="healthScore">💯 Farm Health Score</h3><div class="body"></div></div>
+   <div class="card c5" id="c-card"><h3><span data-i="todayCard">🗓 Today's action card</span></h3><div class="body"></div></div>
+   <div class="card c3" id="c-wx"><h3 data-i="weatherNow">🌤 Weather now</h3><div class="body"></div></div>
+   <div class="card c8" id="c-live"><h3><span data-i="liveSat">🛰 Live satellite view</span> <span class="badge">LIVE</span></h3><div class="body"></div></div>
+   <div class="card c4" id="c-map"><h3 data-i="location">📍 Location</h3><div id="map"></div><div class="mut" id="coordtxt" style="margin-top:6px"></div><div class="body"></div></div>
+   <div class="card c4" id="c-idx"><h3 data-i="indices">🌿 Vegetation indices</h3><div class="body"></div></div>
+   <div class="card c4" id="c-crop"><h3 data-i="cropEst">🌾 Crop estimate</h3><div class="body"></div></div>
+   <div class="card c4" id="c-irr"><h3 data-i="irrigation">💧 Irrigation</h3><div class="body"></div></div>
+   <div class="card c8" id="c-ndvi"><h3 data-i="ndviTrend">📈 NDVI · 12-month crop calendar</h3><div class="body"><canvas id="ch" height="105"></canvas></div></div>
+   <div class="card c4" id="c-spray"><h3 data-i="spray">🧴 Spray window & pest risk</h3><div class="body"></div></div>
+   <div class="card c8" id="c-fc"><h3 data-i="forecast">📅 7-day forecast & alerts</h3><div class="body"></div></div>
+   <div class="card c4" id="c-soil"><h3 data-i="soil">🪱 Soil</h3><div class="body"></div></div>
+   <div class="card c4" id="c-clim"><h3 data-i="climate">🌡 Last 30 days (NASA POWER)</h3><div class="body"></div></div>
+   <div class="card c4" id="c-lc"><h3 data-i="landcover">🗺 Land cover (ESA)</h3><div class="body"></div></div>
+   <div class="card c4" id="c-rev"><h3 data-i="revisit">🛰 Satellite passes</h3><div class="body"></div></div>
+  </div>
+ </section>
+
+ <!-- MARKET -->
+ <section id="v-market" class="hidden">
+  <div class="card"><h3 data-i="wts">💰 Where to sell · best money in hand</h3>
+   <div class="form2" style="grid-template-columns:1.2fr 1.2fr .6fr 1.2fr auto">
+    <div><label data-i="commodity">Commodity</label><select id="mcom"></select></div>
+    <div><label data-i="variety">Variety</label><select id="mvar"><option value="all">All varieties (median per mandi)</option></select></div>
+    <div><label data-i="qty">Quantity (q)</label><input id="mqty" value="20" type="number" min="1"></div>
+    <div><label data-i="vehicle">Vehicle</label><select id="mveh"></select></div>
+    <button class="btn" id="mgo" onclick="runMarket()" data-i="findMandi">💰 Find best mandi</button>
+   </div><div id="mstatus" class="mut" style="margin-top:6px"></div></div>
+  <div id="mout"></div>
+ </section>
+
+ <!-- PASSPORT -->
+ <section id="v-passport" class="hidden">
+  <div class="grid">
+   <div class="card c5"><h3 data-i="ppTitle">🛡 Farm Quality Passport</h3>
+    <p style="margin:0 0 10px;font-size:13.5px" data-i="ppIntro">A shareable page per farm: satellite evidence with dates, crop-health trend, the farmer's input log and an organic score. Buyers scan the QR code before they buy.</p>
+    <label data-i="ppSelect">Your passports</label><select id="pfarm" onchange="loadPassport(this.value)"></select>
+    <div id="pcard" style="margin-top:12px"></div></div>
+   <div class="card c7"><h3 data-i="ppNew">➕ Create a passport for the current location</h3>
+    <div class="form2"><div><label data-i="farmer">Farmer name</label><input id="pf-name" placeholder="e.g. Ramesh"></div>
+     <div><label data-i="village">Village</label><input id="pf-vil" placeholder="e.g. Keragodu"></div>
+     <div><label data-i="crop">Crop</label><select id="pf-crop"><option>paddy</option><option>ragi</option><option>maize</option><option>tomato</option><option>sugarcane</option><option>onion</option><option>cotton</option><option>groundnut</option><option>coconut</option><option>arecanut</option></select></div>
+     <div><label data-i="acres">Area (acres)</label><input id="pf-ac" type="number" value="2"></div></div>
+    <div style="margin-top:10px"><button class="btn sm" onclick="createPassport()" data-i="ppCreate">Create passport</button> <span class="mut" id="pf-msg"></span></div>
+    <h3 style="margin-top:18px" data-i="ppLog">🧾 Add an input log entry (self-declared)</h3>
+    <form id="logf" onsubmit="addLog(event)"><div class="form2">
+     <div><label data-i="date">Date</label><input name="date" type="date" required></div>
+     <div><label data-i="itype">Input type</label><select name="input_type" id="ptypes"></select></div>
+     <div><label data-i="product">Product</label><input name="product" required placeholder="e.g. Vermicompost"></div>
+     <div><label data-i="quantity">Quantity</label><input name="quantity" placeholder="e.g. 500 kg/acre"></div>
+     <div style="grid-column:span 2"><label data-i="notes">Notes</label><input name="notes"></div>
+     <div><label data-i="bill">Bill photo (optional)</label><input name="bill" type="file" accept="image/*"></div>
+     <button class="btn sm" data-i="ppAdd">Add entry</button></div></form><div class="mut" id="log-msg"></div>
+    <div id="plogs" style="margin-top:10px"></div></div>
+   <div class="card c12"><h3 data-i="ppPreview">👁 What the buyer sees</h3><iframe id="pframe" style="width:100%;height:900px;border:1px solid #e2e8f0;border-radius:12px" loading="lazy"></iframe></div>
+  </div>
+ </section>
+
+ <!-- ADVISOR -->
+ <section id="v-advisor" class="hidden">
+  <div class="grid">
+   <div class="card c7" id="a-card"><h3><span data-i="advTitle">🤖 Daily advisor</span><span class="t" id="a-engine"></span></h3><div class="body"></div></div>
+   <div class="card c5" id="a-risk"><h3 data-i="spray">🧴 Spray window & pest risk</h3><div class="body"></div></div>
+   <div class="card c12"><h3 data-i="schemes">🏛 Government schemes · quick eligibility</h3>
+    <div class="form2" style="grid-template-columns:repeat(6,1fr)">
+     <div><label data-i="acres">Land (acres)</label><input id="s-ac" type="number" value="2" step="0.5"></div>
+     <div><label data-i="owner">Land in own name?</label><select id="s-own"><option value="true">Yes</option><option value="false">No (tenant)</option></select></div>
+     <div><label data-i="itax">Income-tax payer / govt job?</label><select id="s-tax"><option value="false">No</option><option value="true">Yes</option></select></div>
+     <div><label data-i="irr">Irrigation</label><select id="s-irr"><option value="borewell">Borewell (grid pump)</option><option value="offgrid">Borewell, no grid power</option><option value="canal">Canal</option><option value="rainfed">Rainfed</option></select></div>
+     <div><label data-i="org">Interested in organic?</label><select id="s-org"><option value="true">Yes</option><option value="false">No</option></select></div>
+     <button class="btn sm" onclick="runSchemes()" data-i="check">Check</button></div>
+    <div id="s-out" style="margin-top:12px"></div></div>
+  </div>
+ </section>
+ <footer>MandiMitra prototype · Data: ESA Copernicus Sentinel-2 & WorldCover (Microsoft Planetary Computer), Open-Meteo, NASA POWER, ISRIC SoilGrids, Agmarknet/data.gov.in, OpenStreetMap/OSRM. Estimates are labelled; verify before acting.</footer>
+</main>
+<script src="/static/app.js"></script>
+</body></html>

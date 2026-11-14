@@ -1,0 +1,62 @@
+{
+ "judge_field": {
+  "wall_s": 0.4,
+  "status": "\u2705 First data in 0.0 s \u00b7 7/7 sections loaded \u00b7 full dashboard in 0.1 s (satellite 0.0s \u00b7 weather 0.0s \u00b7 ndvi-series 0.1s \u00b7 climate 0.1s \u00b7 soil 0.1s \u00b7 revisit 0.1s \u00b7 advisor 0.1s)",
+  "errors": []
+ },
+ "judge_field_top": {
+  "wall_s": 0.2,
+  "status": "\u2705 First data in 0.0 s \u00b7 7/7 sections loaded \u00b7 full dashboard in 0.1 s (satellite 0.0s \u00b7 weather 0.0s \u00b7 soil 0.0s \u00b7 revisit 0.0s \u00b7 ndvi-series 0.1s \u00b7 climate 0.1s \u00b7 advisor 0.1s)",
+  "errors": []
+ },
+ "judge_field_tumakuru": {
+  "wall_s": 0.2,
+  "status": "\u2705 First data in 0.0 s \u00b7 7/7 sections loaded \u00b7 full dashboard in 0.1 s (weather 0.0s \u00b7 climate 0.0s \u00b7 satellite 0.0s \u00b7 revisit 0.0s \u00b7 ndvi-series 0.1s \u00b7 soil 0.1s \u00b7 advisor 0.1s)",
+  "errors": []
+ },
+ "judge_field_davanagere": {
+  "wall_s": 0.2,
+  "status": "\u2705 First data in 0.0 s \u00b7 7/7 sections loaded \u00b7 full dashboard in 0.1 s (soil 0.0s \u00b7 climate 0.0s \u00b7 weather 0.0s \u00b7 ndvi-series 0.0s \u00b7 satellite 0.1s \u00b7 revisit 0.1s \u00b7 advisor 0.1s)",
+  "errors": []
+ },
+ "judge_field_raichur": {
+  "wall_s": 0.2,
+  "status": "\u2705 First data in 0.0 s \u00b7 7/7 sections loaded \u00b7 full dashboard in 0.1 s (weather 0.0s \u00b7 climate 0.0s \u00b7 ndvi-series 0.0s \u00b7 revisit 0.0s \u00b7 satellite 0.0s \u00b7 soil 0.0s \u00b7 advisor 0.1s)",
+  "errors": []
+ },
+ "judge_field_kannada": {
+  "wall_s": 0.3,
+  "status": "\u2705 First data in 0.0 s \u00b7 7/7 sections loaded \u00b7 full dashboard in 0.1 s (weather 0.0s \u00b7 satellite 0.0s \u00b7 climate 0.0s \u00b7 soil 0.0s \u00b7 revisit 0.0s \u00b7 ndvi-series 0.1s \u00b7 advisor 0.1s)",
+  "errors": []
+ },
+ "judge_market": {
+  "wall_s": 0.5,
+  "status": "\u2705 First data in 0.0 s \u00b7 7/7 sections loaded \u00b7 full dashboard in 0.1 s (satellite 0.0s \u00b7 soil 0.0s \u00b7 ndvi-series 0.0s \u00b7 revisit 0.0s \u00b7 climate 0.0s \u00b7 weather 0.0s \u00b7 advisor 0.1s)",
+  "errors": []
+ },
+ "judge_passport": {
+  "wall_s": 0.2,
+  "status": "\u2705 First data in 0.0 s \u00b7 7/7 sections loaded \u00b7 full dashboard in 0.0 s (satellite 0.0s \u00b7 revisit 0.0s \u00b7 ndvi-series 0.0s \u00b7 weather 0.0s \u00b7 soil 0.0s \u00b7 climate 0.0s \u00b7 advisor 0.0s)",
+  "errors": []
+ },
+ "judge_passport_page": {
+  "wall_s": 0.1,
+  "status": "",
+  "errors": []
+ },
+ "judge_advisor": {
+  "wall_s": 0.2,
+  "status": "\u2705 First data in 0.0 s \u00b7 7/7 sections loaded \u00b7 full dashboard in 0.0 s (revisit 0.0s \u00b7 ndvi-series 0.0s \u00b7 soil 0.0s \u00b7 weather 0.0s \u00b7 climate 0.0s \u00b7 satellite 0.0s \u00b7 advisor 0.0s)",
+  "errors": []
+ },
+ "judge_mobile": {
+  "wall_s": 0.2,
+  "status": "\u2705 First data in 0.0 s \u00b7 7/7 sections loaded \u00b7 full dashboard in 0.1 s (revisit 0.0s \u00b7 ndvi-series 0.0s \u00b7 soil 0.0s \u00b7 satellite 0.0s \u00b7 climate 0.0s \u00b7 weather 0.0s \u00b7 advisor 0.1s)",
+  "errors": []
+ },
+ "judge_cold_new_location": {
+  "wall_s": 5.5,
+  "status": "\u2705 First data in 0.1 s \u00b7 7/7 sections loaded \u00b7 full dashboard in 5.4 s (weather 0.1s \u00b7 climate 0.8s \u00b7 revisit 2.3s \u00b7 ndvi-series 3.0s \u00b7 satellite 3.0s \u00b7 advisor 3.0s \u00b7 soil 5.4s)",
+  "errors": []
+ }
+}

@@ -1,0 +1,22 @@
+{
+  "_note": "Prototype assumptions for Karnataka. Edit freely; every number here is an estimate, not an official rate.",
+  "vehicles": {
+    "auto":     {"label": "Goods auto / Ape (5 q)",          "capacity_q": 5,   "rate_per_km": 16, "fixed": 150},
+    "ace":      {"label": "Tata Ace mini-truck (10 q)",       "capacity_q": 10,  "rate_per_km": 22, "fixed": 250},
+    "tractor":  {"label": "Tractor + trolley (30 q)",         "capacity_q": 30,  "rate_per_km": 30, "fixed": 400},
+    "pickup":   {"label": "Eicher/407 truck (40 q)",          "capacity_q": 40,  "rate_per_km": 36, "fixed": 500},
+    "truck":    {"label": "10-wheel lorry (150 q)",           "capacity_q": 150, "rate_per_km": 58, "fixed": 1000}
+  },
+  "_vehicle_note": "Trip cost = fixed (loading/waiting) + rate_per_km x one-way road km (rate already includes the empty return). Trips = ceil(quantity / capacity).",
+  "market_fee_pct": 1.0,
+  "_market_fee_note": "Karnataka APMC market fee (cess); it has been revised several times, so check the current notified rate.",
+  "commission_pct": {"perishable": 5.0, "semi": 3.0, "durable": 2.0},
+  "hamali_per_q": 20,
+  "_hamali_note": "Loading/unloading/weighing charges per quintal (varies by APMC).",
+  "spoilage": {
+    "perishable": {"base_pct": 2.0, "per_100km_pct": 3.0, "max_pct": 20.0},
+    "semi":       {"base_pct": 0.5, "per_100km_pct": 0.5, "max_pct": 5.0},
+    "durable":    {"base_pct": 0.0, "per_100km_pct": 0.0, "max_pct": 0.0}
+  },
+  "max_road_km": 400
+}
